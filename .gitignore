@@ -1,0 +1,11 @@
+# Compilation results
+[Bb]in
+[Oo]bj
+
+# User config files
+*.user
+*.suo
+
+# Backup files
+*.bak
+*.orig

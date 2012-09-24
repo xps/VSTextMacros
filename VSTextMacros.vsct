@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <Extern href="stdidcmd.h" />
+    <Extern href="vsshlids.h" />
+
+    <Commands package="guidVSTextMacrosPkg">
+
+        <Menus>
+            <Menu guid="guidToolsGroup" id="idTextMacros" type="Menu" priority="0x600">
+                <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOLS_OTHER2" />
+                <Strings>
+                    <ButtonText>&amp;Text Macros</ButtonText>
+                </Strings>
+            </Menu>
+        </Menus>
+
+        <Groups>
+            <Group guid="guidToolsGroup" id="idToolsGroup" priority="0x100">
+                <Parent guid="guidToolsGroup" id="idTextMacros" />
+            </Group>
+        </Groups>
+
+        <Buttons>
+
+            <Button guid="guidToolsGroup" id="idRecordMacro" priority="0xF201" type="Button">
+                <Parent guid="guidToolsGroup" id="idToolsGroup" />
+                <CommandFlag>DynamicVisibility</CommandFlag>
+                <CommandFlag>DontCache</CommandFlag>
+                <CommandFlag>DefaultDisabled</CommandFlag>
+                <CommandFlag>DefaultInvisible</CommandFlag>
+                <CommandFlag>TextChanges</CommandFlag>
+                <Strings>
+                    <CommandName>RecordMacro</CommandName>
+                    <ButtonText>&amp;Toggle Macro Recording</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidToolsGroup" id="idPlaybackMacro" priority="0xF202" type="Button">
+                <Parent guid="guidToolsGroup" id="idToolsGroup" />
+                <CommandFlag>DynamicVisibility</CommandFlag>
+                <CommandFlag>DontCache</CommandFlag>
+                <CommandFlag>DefaultDisabled</CommandFlag>
+                <CommandFlag>DefaultInvisible</CommandFlag>
+                <Strings>
+                    <CommandName>PlaybackMacro</CommandName>
+                    <ButtonText>&amp;Playback Macro</ButtonText>
+                </Strings>
+            </Button>
+        </Buttons>
+
+    </Commands>
+
+    <KeyBindings>
+        <KeyBinding guid="guidToolsGroup" id="idRecordMacro" key1="M" mod1="Control Shift" editor="guidVSStd97" />
+        <KeyBinding guid="guidToolsGroup" id="idPlaybackMacro" key1="P" mod1="Control Shift" editor="guidVSStd97" />
+    </KeyBindings>
+
+    <Symbols>
+
+        <GuidSymbol name="guidVSTextMacrosPkg" value="{6d613d99-e83f-4532-a1d8-e188e419460c}" />
+
+        <GuidSymbol name="guidToolsGroup" value="{15c6b4a6-7afb-4d55-97fe-c8191c3f5c47}">
+            <IDSymbol name="idToolsGroup" value="0x1020" />
+            <IDSymbol name="idTextMacros" value="0x2001" />
+            <IDSymbol name="idPlaybackMacro" value="0x2002" />
+            <IDSymbol name="idRecordMacro" value="0x2003" />
+        </GuidSymbol>
+        
+    </Symbols>
+
+</CommandTable>
