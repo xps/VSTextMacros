@@ -163,6 +163,8 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Documentation\example.gif" />
+    <None Include="Documentation\screenshot.png" />
     <Content Include="License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>

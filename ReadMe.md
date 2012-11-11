@@ -6,8 +6,6 @@ An extension for Visual Studio 2012 that brings support for macros in text/code 
 You can use it to automate repetitive text editing tasks.
 It is inspired by the macro feature of [Notepad++][1], so if you have used it then you already know how to use this extension.
 
- [1]: http://notepad-plus-plus.org
-
 How does it work?
 ===============================
 
@@ -15,26 +13,12 @@ After installing this extension, you will find a menu called `Text Macros` in th
 It will only be visible when there is an active text or code editor.
 It has 2 submenus, one that toggles the recording of a macro (Start/stop recording macro) and one that replays the last recorded macro (Playback macro).
 
-So let's say you wanted to add a comma after each word on a line:
+ ![Screenshot][2]
 
-    Lorem ipsum dolor sit amet consectetur adipiscing elit
+So the idea is that you start recording, make some edits, stop recording, and then replay the edits.  
+For example, here's what you would do if you just copied a few signatures from an interface that you have to implement:
 
- 1. Place you cursor at the begining of the first word
- 2. Start recording a macro (`Ctrl+Shift+M`)
- 3. Press `Ctrl+Right` to go to the end of the word
- 4. Type in the comma
- 5. Press `Ctrl+Right` to go to the begining of the next word
- 6. Stop recording the macro (`Ctrl+Shift+M`)
-
-You should now have this:
-
-    Lorem, ipsum dolor sit amet consectetur adipiscing elit
-
-If you now replay the macro (`Ctrl+Shift+P`), a comma will be added after the second word. Press `Ctrl+Shift+P` a few more times and you will get a comma after each word:
-
-    Lorem, ipsum, dolor, sit, amet, consectetur, adipiscing, elit
-
-This is a simple example, but you are not limited to single-line edits.
+ ![Demo][3]
 
 You can change the shortcuts associated with the macro menus in Tools > Options > Environment > Keyboard.  
 Look for the following commands:
@@ -42,12 +26,12 @@ Look for the following commands:
  - Tools.ToggleMacroRecording
  - Tools.PlaybackMacro
 
-What's recorded?
+What can be recorded?
 ===============================
 
-Only text editing features are recorded, so you cannot use this extension to automate work in, say, a Windows Forms editor.
+Only text editing features can be recorded, so you cannot use this extension to automate work in, say, a Windows Forms editor.
 
-Currently, here are the commands that are recorded:
+Currently, here are the commands that can be recorded:
 
  - Cursor movements
  - Characters that you type
@@ -78,3 +62,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+ [1]: http://notepad-plus-plus.org
+ [2]: https://raw.github.com/xps/VSTextMacros/master/Documentation/screenshot.png
+ [3]: https://github.com/xps/VSTextMacros/raw/master/Documentation/example.gif
