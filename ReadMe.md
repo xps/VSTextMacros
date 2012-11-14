@@ -1,10 +1,15 @@
-﻿What is it?
+What is it?
 ===============================
 
 An extension for Visual Studio 2012 that brings support for macros in text/code editors.
 
 You can use it to automate repetitive text editing tasks.
 It is inspired by the macro feature of [Notepad++][1], so if you have used it then you already know how to use this extension.
+
+Download
+===============================
+
+You can download the VSIX installer from the [Visual Studio Gallery][4] or [here on GitHub][5].
 
 How does it work?
 ===============================
@@ -66,3 +71,5 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [1]: http://notepad-plus-plus.org
  [2]: https://raw.github.com/xps/VSTextMacros/master/Documentation/screenshot.png
  [3]: https://github.com/xps/VSTextMacros/raw/master/Documentation/example.gif
+ [4]: http://visualstudiogallery.msdn.microsoft.com/8e2103b6-87cf-4fef-9410-a580c434b602
+ [5]: https://github.com/xps/VSTextMacros/downloads
