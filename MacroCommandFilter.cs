@@ -14,6 +14,15 @@ namespace XPS.VSTextMacros
         // A reference to the next IOleCommandTarget in the chain
         public IOleCommandTarget Next { get; set; }
 
+        // A reference to the manager that can show/hide the visual cue when recording
+        private MacroAdornmentManager AdornmentManager { get; set; }
+
+        // Constructor
+        public MacroCommandFilter(MacroAdornmentManager adornmentManager)
+        {
+            this.AdornmentManager = adornmentManager;
+        }
+
         // Executes the menu commands and does the recording of other commands
         public int Exec(ref Guid pguidCmdGroup, uint nCmdID, uint nCmdexecopt, IntPtr pvaIn, IntPtr pvaOut)
         {
@@ -23,9 +32,15 @@ namespace XPS.VSTextMacros
                 if (nCmdID == PkgCmdIDList.idRecordMacro)
                 {
                     if (Macro.CurrentMacro == null || !Macro.CurrentMacro.IsRecording)
+                    {
                         Macro.StartNew();
+                        AdornmentManager.ShowVisual();
+                    }
                     else
+                    {
                         Macro.CurrentMacro.StopRecording();
+                        AdornmentManager.HideVisual();
+                    }
 
                     return VSConstants.S_OK;
                 }
