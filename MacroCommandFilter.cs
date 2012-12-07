@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace XPS.VSTextMacros
+namespace VSTextMacros
 {
     // This filter is added to every text editor
     public class MacroCommandFilter : IOleCommandTarget

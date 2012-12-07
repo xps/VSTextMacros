@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace XPS.VSTextMacros
+namespace VSTextMacros
 {
     // A macro, i.e. a list of macro commands
     public class Macro

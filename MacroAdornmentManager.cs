@@ -6,7 +6,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace XPS.VSTextMacros
+namespace VSTextMacros
 {
     // Manages the visual cue that is shown when recording a macro
     public class MacroAdornmentManager

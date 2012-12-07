@@ -2,7 +2,7 @@
 // MUST match PkgCmdID.h
 using System;
 
-namespace XPS.VSTextMacros
+namespace VSTextMacros
 {
     static class PkgCmdIDList
     {

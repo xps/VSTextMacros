@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace XPS.VSTextMacros
+namespace VSTextMacros
 {
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]

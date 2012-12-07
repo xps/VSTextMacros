@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace XPS.VSTextMacros
+namespace VSTextMacros
 {
     // List of all recordable commands
     public class RecordableCommands

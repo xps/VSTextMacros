@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.Utilities;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
 
-namespace XPS.VSTextMacros
+namespace VSTextMacros
 {
     // This listener is loaded by MEF and adds a MacroCommandFilter to every new IVsTextView
     [Export(typeof(IVsTextViewCreationListener)), TextViewRole(PredefinedTextViewRoles.Editable), ContentType("text")]

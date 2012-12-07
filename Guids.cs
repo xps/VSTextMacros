@@ -2,7 +2,7 @@
 // MUST match guids.h
 using System;
 
-namespace XPS.VSTextMacros
+namespace VSTextMacros
 {
     static class GuidList
     {
