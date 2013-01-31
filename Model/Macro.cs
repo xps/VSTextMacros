@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using VSTextMacros.Utilities;
 
-namespace VSTextMacros
+namespace VSTextMacros.Model
 {
     // A macro, i.e. a list of macro commands
     public class Macro
@@ -55,14 +57,21 @@ namespace VSTextMacros
         {
             Commands.Add(command);
         }
-    }
 
-    // A macro command (such as a keypress)
-    public class MacroCommand
-    {
-        public Guid CommandGroup { get; set; }
-        public uint CommandID { get; set; }
-        public uint CommandOptions { get; set; }
-        public char? Character { get; set; }
+        // Saves the current macro to a file
+        public static void SaveToFile(string filename)
+        {
+            if (CurrentMacro != null)
+                File.WriteAllText(filename, XmlHelpers.Serialize(CurrentMacro.Commands));
+        }
+
+        // Loads the current macro from a file
+        public static void LoadFromFile(string filename)
+        {
+            CurrentMacro = new Macro
+            {
+                Commands = XmlHelpers.Deserialize<List<MacroCommand>>(File.ReadAllText(filename))
+            };
+        }
     }
 }

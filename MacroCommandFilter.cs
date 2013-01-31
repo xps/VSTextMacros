@@ -2,9 +2,11 @@
 using Microsoft.VisualStudio.OLE.Interop;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using VSTextMacros.Model;
 
 namespace VSTextMacros
 {
@@ -39,6 +41,7 @@ namespace VSTextMacros
                     else
                     {
                         Macro.CurrentMacro.StopRecording();
+                        Macro.SaveToFile(Path.Combine(VSTextMacrosPackage.Current.MacroDirectory, "Current.xml"));
                         AdornmentManager.HideVisual();
                     }
 

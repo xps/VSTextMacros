@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace VSTextMacros
+namespace VSTextMacros.Model
 {
     // List of all recordable commands
     public class RecordableCommands
