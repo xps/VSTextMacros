@@ -1,0 +1,6 @@
+﻿1.1 - Feb 8, 2013
+	Added visual cue while recording
+	Currrent macro now persists across sessions
+
+1.0 - Nov 13, 2012
+	Initial version

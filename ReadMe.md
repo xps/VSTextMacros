@@ -9,7 +9,7 @@ It is inspired by the macro feature of [Notepad++][1], so if you have used it th
 Download
 ===============================
 
-You can download the VSIX installer from the [Visual Studio Gallery][4] or [here on GitHub][5].
+You can download the VSIX installer from the [Visual Studio Gallery][4].
 
 How does it work?
 ===============================
@@ -43,6 +43,18 @@ Currently, here are the commands that can be recorded:
  - Tabs, new lines, deletions
  - Some text editing commands from the Edit menu (to lowercase, to uppercase...)
 
+Change Log
+===============================
+
+**1.1 - Feb 8, 2013**
+
+ - Added visual cue while recording
+ - Currrent macro now persists across sessions
+
+**1.0 - Nov 13, 2012**
+
+ - Initial version
+
 Want to contribute?
 ===============================
 
@@ -52,8 +64,8 @@ Want to contribute?
 License
 ===============================
 
-Text Macros for Visual Studio 2012  
-Copyright (C) 2012 Xavier Poinas
+Text Macros for Visual Studio 2012
+Copyright (C) 2013 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -72,4 +84,3 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [2]: https://raw.github.com/xps/VSTextMacros/master/Documentation/screenshot.png
  [3]: https://github.com/xps/VSTextMacros/raw/master/Documentation/example.gif
  [4]: http://visualstudiogallery.msdn.microsoft.com/8e2103b6-87cf-4fef-9410-a580c434b602
- [5]: https://github.com/xps/VSTextMacros/downloads

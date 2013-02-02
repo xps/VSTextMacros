@@ -154,6 +154,7 @@
     <EmbeddedResource Include="VSPackage.resx">
       <MergeWithCTO>true</MergeWithCTO>
       <ManifestResourceName>VSPackage</ManifestResourceName>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -172,9 +173,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Documentation\example.gif" />
-    <None Include="Documentation\screenshot.png" />
-    <Content Include="License.txt">
+    <Content Include="Documentation\screenshot.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Documentation\ReleaseNotes.txt">
+      <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentation\License.txt">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="ReadMe.md" />

@@ -8,7 +8,7 @@ using VSTextMacros.Model;
 namespace VSTextMacros
 {
     [PackageRegistration(UseManagedResourcesOnly = true)]
-    [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
+    [InstalledProductRegistration("#110", "#112", "1.1", IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid(GuidList.guidVSTextMacrosPkgString)]
     [ProvideAutoLoad(VSConstants.UICONTEXT.NoSolution_string)]

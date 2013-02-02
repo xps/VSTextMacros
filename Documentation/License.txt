@@ -1,5 +1,5 @@
 ﻿Text Macros for Visual Studio 2012
-Copyright (C) 2012 Xavier Poinas
+Copyright (C) 2013 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
