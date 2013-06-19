@@ -52,13 +52,15 @@
     </Commands>
 
     <KeyBindings>
-        <KeyBinding guid="guidToolsGroup" id="idRecordMacro" key1="M" mod1="Control Shift" editor="guidVSStd97" />
-        <KeyBinding guid="guidToolsGroup" id="idPlaybackMacro" key1="P" mod1="Control Shift" editor="guidVSStd97" />
+        <KeyBinding guid="guidToolsGroup" id="idRecordMacro" mod1="Control Shift" key1="M" editor="guidVSStd97TextEditor" />
+        <KeyBinding guid="guidToolsGroup" id="idRecordMacro" mod1="Control Shift" key1="R" editor="guidVSStd97TextEditor" />
+        <KeyBinding guid="guidToolsGroup" id="idPlaybackMacro" mod1="Control Shift" key1="P" editor="guidVSStd97TextEditor" />
     </KeyBindings>
 
     <Symbols>
 
         <GuidSymbol name="guidVSTextMacrosPkg" value="{6d613d99-e83f-4532-a1d8-e188e419460c}" />
+        <GuidSymbol name="guidVSStd97TextEditor" value="{8b382828-6202-11d1-8870-0000f87579d2}" />
 
         <GuidSymbol name="guidToolsGroup" value="{15c6b4a6-7afb-4d55-97fe-c8191c3f5c47}">
             <IDSymbol name="idToolsGroup" value="0x1020" />
