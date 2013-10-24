@@ -1,10 +1,13 @@
 What is it?
 ===============================
 
-An extension for Visual Studio 2012/2013 that brings back support for macros in text/code editors.
+An extension for Visual Studio 2012/2013 that brings back support for macros in text/code editors. These macros can be used to automate repetitive text editing tasks.
 
-You can use it to automate repetitive text editing tasks.
-It is inspired by the macro feature of [Notepad++][1], so if you have used it then you already know how to use this extension.
+You may have used such macros in previous versions of Visual Studio. Indeed, macros used to be supported and [removed][5] in Visual Studio 2010.
+
+Although macros used to be very sophisticated at the time, letting you control almost any feature of Visual Studio, this extension only aims at supporting the text editing part of macros.
+
+And if you have not used Visual Studio macros before, you may have used them in other text editors such as [Notepad++][1] or [Sublime text][6]. If you have, then you already know how to use this extension.
 
 Download
 ===============================
@@ -46,6 +49,11 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.2 - Oct 24, 2013**
+
+ - Support for Visual Studio 2013
+ - Added 'Ctrl+Shift+R' shortcut to match shortcut of previous Visual Studio versions
+
 **1.1 - Feb 8, 2013**
 
  - Added visual cue while recording
@@ -84,3 +92,5 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [2]: https://raw.github.com/xps/VSTextMacros/master/Documentation/screenshot.png
  [3]: https://github.com/xps/VSTextMacros/raw/master/Documentation/example.gif
  [4]: http://visualstudiogallery.msdn.microsoft.com/8e2103b6-87cf-4fef-9410-a580c434b602
+ [5]: http://social.msdn.microsoft.com/Forums/en-US/vsx/thread/d8410838-085b-4647-8c42-e31b669c9f11
+ [6]: http://sublimetext.info/docs/en/extensibility/macros.html

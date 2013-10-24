@@ -1,4 +1,8 @@
-﻿1.1 - Feb 8, 2013
+﻿1.2 - Oct 24, 2013
+	Support for Visual Studio 2013
+	Added 'Ctrl+Shift+R' shortcut to match previous VS versions
+
+1.1 - Feb 8, 2013
 	Added visual cue while recording
 	Currrent macro now persists across sessions
 
