@@ -1,7 +1,7 @@
 What is it?
 ===============================
 
-An extension for Visual Studio 2012 that brings support for macros in text/code editors.
+An extension for Visual Studio 2012/2013 that brings back support for macros in text/code editors.
 
 You can use it to automate repetitive text editing tasks.
 It is inspired by the macro feature of [Notepad++][1], so if you have used it then you already know how to use this extension.
@@ -64,7 +64,7 @@ Want to contribute?
 License
 ===============================
 
-Text Macros for Visual Studio 2012
+Text Macros for Visual Studio 2012/2013
 Copyright (C) 2013 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
