@@ -94,3 +94,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [4]: http://visualstudiogallery.msdn.microsoft.com/8e2103b6-87cf-4fef-9410-a580c434b602
  [5]: http://social.msdn.microsoft.com/Forums/en-US/vsx/thread/d8410838-085b-4647-8c42-e31b669c9f11
  [6]: http://sublimetext.info/docs/en/extensibility/macros.html
+ 
+ [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/ec90df53b58a3de3f98b8fbbc3a8c326 "githalytics.com")](http://githalytics.com/xps/VSTextMacros)
+ 
