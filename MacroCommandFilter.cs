@@ -92,7 +92,7 @@ namespace VSTextMacros
             {
                 // Arguments check
                 if (prgCmds == null)
-                    return VSConstants.E_INVALIDARG;
+                    return VSConstants.E_POINTER;
 
                 for (int i = 0; i < cCmds; i++)
                 {
@@ -106,10 +106,13 @@ namespace VSTextMacros
                             menuText = "&Stop recording macro";
 
                         // Copy the text to the OLECMDTEXT structure
-                        var cmdText = (OLECMDTEXT)Marshal.PtrToStructure(pCmdText, typeof(OLECMDTEXT));
-                        if (cmdText.cmdtextf == (uint)OLECMDTEXTF.OLECMDTEXTF_NAME)
-                            SetText(pCmdText, menuText);
-
+                        if (pCmdText != IntPtr.Zero)
+                        {
+                            var cmdText = (OLECMDTEXT)Marshal.PtrToStructure(pCmdText, typeof(OLECMDTEXT));
+                            if (cmdText.cmdtextf == (uint)OLECMDTEXTF.OLECMDTEXTF_NAME)
+                                SetText(pCmdText, menuText);
+                        }
+                        
                         // Enable the menu
                         prgCmds[i].cmdf = (uint)(OLECMDF.OLECMDF_SUPPORTED | OLECMDF.OLECMDF_ENABLED);
                     }

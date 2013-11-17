@@ -32,7 +32,7 @@
                 <CommandFlag>TextChanges</CommandFlag>
                 <Strings>
                     <CommandName>RecordMacro</CommandName>
-                    <ButtonText>&amp;Toggle Macro Recording</ButtonText>
+                    <ButtonText>&amp;Start/stop recording macro</ButtonText>
                 </Strings>
             </Button>
 
