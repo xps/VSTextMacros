@@ -1,4 +1,8 @@
-﻿1.2 - Oct 24, 2013
+﻿1.3 - Nov 28, 2013
+	Fixed macros not working in certain file types (HTML...)
+	Recording additional edit commands (format selection, comment/uncomment selection...)
+
+1.2 - Oct 24, 2013
 	Support for Visual Studio 2013
 	Added 'Ctrl+Shift+R' shortcut to match previous VS versions
 

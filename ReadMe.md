@@ -49,6 +49,12 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.3 - Nov 28, 2013**
+
+ - Fixed macros not working in certain file types (HTML...)
+ - Recording additional edit commands: Format Document/Selection, Comment/Uncomment Selection,
+   Delete Horizontal White Space, Increase/Decrease Line Indent, Organize Usings, Move Selected Lines Up/Down (VS 2013).
+
 **1.2 - Oct 24, 2013**
 
  - Support for Visual Studio 2013
