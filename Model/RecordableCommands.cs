@@ -60,7 +60,18 @@ namespace VSTextMacros.Model
                     (uint)VSConstants.VSStd2KCmdID.WORDPREV,
                     (uint)VSConstants.VSStd2KCmdID.WORDPREV_EXT,
                     (uint)VSConstants.VSStd2KCmdID.WORDNEXT,
-                    (uint)VSConstants.VSStd2KCmdID.WORDNEXT_EXT
+                    (uint)VSConstants.VSStd2KCmdID.WORDNEXT_EXT,
+                    (uint)VSConstants.VSStd2KCmdID.FORMATDOCUMENT,
+                    (uint)VSConstants.VSStd2KCmdID.FORMATSELECTION,
+                    (uint)VSConstants.VSStd2KCmdID.COMMENT_BLOCK,
+                    (uint)VSConstants.VSStd2KCmdID.COMMENTBLOCK,
+                    (uint)VSConstants.VSStd2KCmdID.UNCOMMENT_BLOCK,
+                    (uint)VSConstants.VSStd2KCmdID.UNCOMMENTBLOCK,
+                    (uint)VSConstants.VSStd2KCmdID.DELETEWHITESPACE,
+                    (uint)VSConstants.VSStd2KCmdID.DELETELINE,
+                    (uint)VSConstants.VSStd2KCmdID.DELETEBLANKLINES,
+                    (uint)VSConstants.VSStd2KCmdID.INDENT,
+                    (uint)VSConstants.VSStd2KCmdID.UNINDENT
                 }
             },
             {
@@ -75,7 +86,27 @@ namespace VSTextMacros.Model
                     (uint)VSConstants.VSStd97CmdID.Redo,
                     (uint)VSConstants.VSStd97CmdID.MultiLevelRedo,
                     (uint)VSConstants.VSStd97CmdID.SelectAll,
-                    (uint)VSConstants.VSStd97CmdID.Undo
+                    (uint)VSConstants.VSStd97CmdID.Undo,
+                    (uint)VSConstants.VSStd97CmdID.SaveProjectItem
+                }
+            },
+            {
+                // VSConstants.VSStd12
+                Guid.Parse("2A8866DC-7BDE-4DC8-A360-A60679534384"),
+                new HashSet<uint>
+                {
+                    258, // VSConstants.VSStd12CmdID.MoveSelLinesUp
+                    259, // VSConstants.VSStd12CmdID.MoveSelLinesDown
+                }
+            },
+            {
+                // Organize usings menu
+                Guid.Parse("5D7E7F65-A63F-46EE-84F1-990B2CAB23F9"),
+                new HashSet<uint>
+                {
+                    6417, // Remove unused usings
+                    6418, // Sort usings
+                    6419  // Remove and sort
                 }
             }
         };
