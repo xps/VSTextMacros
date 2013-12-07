@@ -33,6 +33,7 @@ Look for the following commands:
 
  - Tools.ToggleMacroRecording
  - Tools.PlaybackMacro
+ - Tools.PlaybackMacroMultipleTimes
 
 What can be recorded?
 ===============================
@@ -48,6 +49,10 @@ Currently, here are the commands that can be recorded:
 
 Change Log
 ===============================
+
+**1.4 - Dec 7, 2013**
+
+ - Added menu to repeat macro a given number of times.
 
 **1.3 - Nov 28, 2013**
 

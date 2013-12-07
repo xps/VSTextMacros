@@ -1,4 +1,7 @@
-﻿1.3 - Nov 28, 2013
+﻿1.4 - Dec 7, 2013
+	Added menu to repeat macro a given number of times
+
+1.3 - Nov 28, 2013
 	Fixed macros not working in certain file types (HTML...)
 	Recording additional edit commands (format selection, comment/uncomment selection...)
 
