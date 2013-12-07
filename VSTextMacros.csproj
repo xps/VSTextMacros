@@ -128,7 +128,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Guids.cs" />
+    <Compile Include="Dialogs\RepeatMacroMultipleTimesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\RepeatMacroMultipleTimesDialog.Designer.cs">
+      <DependentUpon>RepeatMacroMultipleTimesDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuidList.cs" />
     <Compile Include="Model\Macro.cs" />
     <Compile Include="MacroAdornmentManager.cs" />
     <Compile Include="Model\MacroCommand.cs" />
@@ -141,12 +147,15 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="VSTextMacrosPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PkgCmdID.cs" />
+    <Compile Include="PkgCmdIDList.cs" />
     <Compile Include="MacroCommandFilter.cs" />
     <Compile Include="VsTextViewCreationListener.cs" />
     <Compile Include="Utilities\XmlHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dialogs\RepeatMacroMultipleTimesDialog.resx">
+      <DependentUpon>RepeatMacroMultipleTimesDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

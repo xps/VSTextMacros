@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using VSTextMacros.Dialogs;
 using VSTextMacros.Model;
 
 namespace VSTextMacros
@@ -57,6 +58,23 @@ namespace VSTextMacros
                         MessageBox.Show("Can't playback: a macro is currently recording. Stop recording first.");
                     else
                         Playback(Macro.CurrentMacro);
+
+                    return VSConstants.S_OK;
+                }
+
+                // Playback multiple times
+                if (nCmdID == PkgCmdIDList.idPlaybackMacroMultipleTimes)
+                {
+                    if (Macro.CurrentMacro == null)
+                        MessageBox.Show("Can't playback: no macro was recorded");
+                    else if (Macro.CurrentMacro.IsRecording)
+                        MessageBox.Show("Can't playback: a macro is currently recording. Stop recording first.");
+                    else
+                    {
+                        var dlg = new RepeatMacroMultipleTimesDialog();
+                        dlg.ShowDialog();
+                        Playback(Macro.CurrentMacro, dlg.Times);
+                    }
 
                     return VSConstants.S_OK;
                 }
@@ -117,8 +135,8 @@ namespace VSTextMacros
                         prgCmds[i].cmdf = (uint)(OLECMDF.OLECMDF_SUPPORTED | OLECMDF.OLECMDF_ENABLED);
                     }
 
-                    // Enables/disables the 'Playback' menu item
-                    if (prgCmds[i].cmdID == PkgCmdIDList.idPlaybackMacro)
+                    // Enables/disables the 'Playback' menu items
+                    if (prgCmds[i].cmdID == PkgCmdIDList.idPlaybackMacro || prgCmds[i].cmdID == PkgCmdIDList.idPlaybackMacroMultipleTimes)
                     {
                         if (Macro.CurrentMacro == null || Macro.CurrentMacro.IsRecording)
                             prgCmds[i].cmdf = (uint)(OLECMDF.OLECMDF_SUPPORTED);
@@ -134,22 +152,25 @@ namespace VSTextMacros
         }
 
         // Replays a macro
-        private void Playback(Macro macro)
+        private void Playback(Macro macro, int times = 1)
         {
             var pvaIn = Marshal.AllocCoTaskMem(16);
             try
             {
-                foreach (var command in macro.Commands)
+                for (int i = 0; i < times; i++)
                 {
-                    var pguidCmdGroup = command.CommandGroup;
-
-                    if (command.Character != null)
+                    foreach (var command in macro.Commands)
                     {
-                        Marshal.GetNativeVariantForObject((ushort)command.Character, pvaIn);
-                        Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, pvaIn, IntPtr.Zero);
+                        var pguidCmdGroup = command.CommandGroup;
+
+                        if (command.Character != null)
+                        {
+                            Marshal.GetNativeVariantForObject((ushort)command.Character, pvaIn);
+                            Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, pvaIn, IntPtr.Zero);
+                        }
+                        else
+                            Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, IntPtr.Zero, IntPtr.Zero);
                     }
-                    else
-                        Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, IntPtr.Zero, IntPtr.Zero);
                 }
             }
             finally

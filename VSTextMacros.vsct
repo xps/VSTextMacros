@@ -44,9 +44,22 @@
                 <CommandFlag>DefaultInvisible</CommandFlag>
                 <Strings>
                     <CommandName>PlaybackMacro</CommandName>
-                    <ButtonText>&amp;Playback Macro</ButtonText>
+                    <ButtonText>&amp;Playback macro</ButtonText>
                 </Strings>
             </Button>
+
+            <Button guid="guidToolsGroup" id="idPlaybackMacroMultipleTimes" priority="0xF203" type="Button">
+                <Parent guid="guidToolsGroup" id="idToolsGroup" />
+                <CommandFlag>DynamicVisibility</CommandFlag>
+                <CommandFlag>DontCache</CommandFlag>
+                <CommandFlag>DefaultDisabled</CommandFlag>
+                <CommandFlag>DefaultInvisible</CommandFlag>
+                <Strings>
+                    <CommandName>PlaybackMacroMultipleTimes</CommandName>
+                    <ButtonText>Playback macro multiple &amp;times...</ButtonText>
+                </Strings>
+            </Button>
+            
         </Buttons>
 
     </Commands>
@@ -66,6 +79,7 @@
             <IDSymbol name="idToolsGroup" value="0x1020" />
             <IDSymbol name="idTextMacros" value="0x2001" />
             <IDSymbol name="idPlaybackMacro" value="0x2002" />
+            <IDSymbol name="idPlaybackMacroMultipleTimes" value="0x2004" />
             <IDSymbol name="idRecordMacro" value="0x2003" />
         </GuidSymbol>
         
