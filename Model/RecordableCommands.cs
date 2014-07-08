@@ -71,7 +71,9 @@ namespace VSTextMacros.Model
                     (uint)VSConstants.VSStd2KCmdID.DELETELINE,
                     (uint)VSConstants.VSStd2KCmdID.DELETEBLANKLINES,
                     (uint)VSConstants.VSStd2KCmdID.INDENT,
-                    (uint)VSConstants.VSStd2KCmdID.UNINDENT
+                    (uint)VSConstants.VSStd2KCmdID.UNINDENT,
+                    (uint)VSConstants.VSStd2KCmdId.EditorLineFirstColumn, //Editor line first column (Edit.LineFirstColumn)
+                    (uint)VSConstants.VSStd2KCmdId.EditorLineFirstColumnExtend //Editor line first column extended (Edit.LineFirstColumnExtend)
                 }
             },
             {
