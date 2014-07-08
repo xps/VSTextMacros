@@ -50,6 +50,10 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.5 - Jul 8, 2014**
+
+ - Added "Edit.LineFirstColumn" as a recordable command.
+
 **1.4 - Dec 7, 2013**
 
  - Added menu to repeat macro a given number of times.
@@ -84,7 +88,7 @@ License
 ===============================
 
 Text Macros for Visual Studio 2012/2013
-Copyright (C) 2013 Xavier Poinas
+Copyright (C) 2014 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -105,4 +109,3 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [4]: http://visualstudiogallery.msdn.microsoft.com/8e2103b6-87cf-4fef-9410-a580c434b602
  [5]: http://social.msdn.microsoft.com/Forums/en-US/vsx/thread/d8410838-085b-4647-8c42-e31b669c9f11
  [6]: http://sublimetext.info/docs/en/extensibility/macros.html
- 
