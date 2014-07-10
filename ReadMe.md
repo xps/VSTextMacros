@@ -19,7 +19,7 @@ How does it work?
 
 After installing this extension, you will find a menu called `Text Macros` in the `Tools` menu.
 It will only be visible when there is an active text or code editor.
-It has 2 submenus, one that toggles the recording of a macro (Start/stop recording macro) and one that replays the last recorded macro (Playback macro).
+It has 3 submenus: one that toggles the recording of a macro (Start/stop recording macro), one that replays the last recorded macro (Playback macro), and another that can repeat the macro any given number of times.
 
  ![Screenshot][2]
 
@@ -52,7 +52,7 @@ Change Log
 
 **1.5 - Jul 8, 2014**
 
- - Added "Edit.LineFirstColumn" as a recordable command.
+ - Added "Edit.LineFirstColumn" as a recordable command (thanks to [JoseJiminiz][7]).
 
 **1.4 - Dec 7, 2013**
 
@@ -109,3 +109,5 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [4]: http://visualstudiogallery.msdn.microsoft.com/8e2103b6-87cf-4fef-9410-a580c434b602
  [5]: http://social.msdn.microsoft.com/Forums/en-US/vsx/thread/d8410838-085b-4647-8c42-e31b669c9f11
  [6]: http://sublimetext.info/docs/en/extensibility/macros.html
+ [7]: https://github.com/JoseJimeniz
+ 
