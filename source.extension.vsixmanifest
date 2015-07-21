@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-    <Metadata>
-        <Identity Id="6d613d99-e83f-4532-a1d8-e188e419460c" Version="1.5" Language="en-US" Publisher="Xavier Poinas" />
-        <DisplayName>Text Macros for Visual Studio 2012/2013</DisplayName>
-        <Description xml:space="preserve">Brings back text-editing/keyboard macro support in VS 2012/2013</Description>
-        <MoreInfo>https://github.com/xps/vstextmacros</MoreInfo>
-        <License>Documentation\License.txt</License>
-        <ReleaseNotes>Documentation\ReleaseNotes.txt</ReleaseNotes>
-        <PreviewImage>Documentation\screenshot.png</PreviewImage>
-        <Tags>Productivity, Macros, Editor, Visual Studio</Tags>
-    </Metadata>
-    <Installation InstalledByMsi="false">
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[11.0,12.0]" />
-    </Installation>
-    <Dependencies>
-        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="4.5" />
-        <Dependency Id="Microsoft.VisualStudio.MPF.11.0" DisplayName="Visual Studio MPF 11.0" d:Source="Installed" Version="11.0" />
-    </Dependencies>
-    <Assets>
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-        <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
-    </Assets>
+	<Metadata>
+		<Identity Id="6d613d99-e83f-4532-a1d8-e188e419460c" Version="1.6" Language="en-US" Publisher="Xavier Poinas" />
+		<DisplayName>Text Macros for Visual Studio 2012/2013/2015</DisplayName>
+		<Description xml:space="preserve">Brings back text-editing/keyboard macro support in VS 2012/2013/2015</Description>
+		<MoreInfo>https://github.com/xps/vstextmacros</MoreInfo>
+		<License>Documentation\License.txt</License>
+		<ReleaseNotes>Documentation\ReleaseNotes.txt</ReleaseNotes>
+		<PreviewImage>Documentation\screenshot.png</PreviewImage>
+		<Tags>Productivity, Macros, Editor, Visual Studio</Tags>
+	</Metadata>
+	<Installation InstalledByMsi="false">
+		<InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[11.0,14.0]" />
+	</Installation>
+	<Dependencies>
+		<Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="4.5" />
+		<Dependency Id="Microsoft.VisualStudio.MPF.11.0" DisplayName="Visual Studio MPF 11.0" d:Source="Installed" Version="11.0" />
+	</Dependencies>
+	<Assets>
+		<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+		<Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
+	</Assets>
 </PackageManifest>

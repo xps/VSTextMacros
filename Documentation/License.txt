@@ -1,4 +1,4 @@
-﻿Text Macros for Visual Studio 2012/2013
+﻿Text Macros for Visual Studio 2012/2013/2015
 Copyright (C) 2014 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify

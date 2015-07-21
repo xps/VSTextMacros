@@ -1,7 +1,7 @@
 What is it?
 ===============================
 
-An extension for Visual Studio 2012/2013 that brings back support for macros in text/code editors. These macros can be used to automate repetitive text editing tasks.
+An extension for Visual Studio 2012/2013/2015 that brings back support for macros in text/code editors. These macros can be used to automate repetitive text editing tasks.
 
 You may have used such macros in previous versions of Visual Studio. Indeed, macros used to be supported and [removed][5] in Visual Studio 2010.
 
@@ -49,6 +49,10 @@ Currently, here are the commands that can be recorded:
 
 Change Log
 ===============================
+
+**1.6 - Jul 21, 2015**
+
+ - Support for Visual Studio 2015
 
 **1.5 - Jul 8, 2014**
 
