@@ -1,4 +1,7 @@
-﻿1.5 - Jul 8, 2014
+﻿1.6 - Jul 21, 2015
+    Support for Visual Studio 2015
+    
+1.5 - Jul 8, 2014
     Added "Edit.LineFirstColumn" as a recordable command
     
 1.4 - Dec 7, 2013
