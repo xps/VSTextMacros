@@ -9,3 +9,6 @@
 # Backup files
 *.bak
 *.orig
+
+# NuGet packages
+packages
