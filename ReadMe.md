@@ -50,9 +50,13 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.7 - Aug 8, 2015**
+
+ - Fixed support for VS 2012/2013
+
 **1.6 - Jul 21, 2015**
 
- - Support for Visual Studio 2015
+ - Support for Visual Studio 2015 (thanks to [Ian Prest][8])
 
 **1.5 - Jul 8, 2014**
 
@@ -114,4 +118,5 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [5]: http://social.msdn.microsoft.com/Forums/en-US/vsx/thread/d8410838-085b-4647-8c42-e31b669c9f11
  [6]: http://sublimetext.info/docs/en/extensibility/macros.html
  [7]: https://github.com/JoseJimeniz
+ [8]: https://github.com/ijprest
  
