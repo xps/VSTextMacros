@@ -50,6 +50,10 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.8 - May 5, 2016**
+
+ - Added option to save macros
+
 **1.7 - Aug 8, 2015**
 
  - Fixed support for VS 2012/2013
@@ -95,8 +99,8 @@ Want to contribute?
 License
 ===============================
 
-Text Macros for Visual Studio 2012/2013
-Copyright (C) 2014 Xavier Poinas
+Text Macros for Visual Studio 2012/2013/2015
+Copyright (C) 2016 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

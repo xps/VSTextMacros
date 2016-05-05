@@ -1,4 +1,7 @@
-﻿1.7 - Aug 8, 2015
+﻿1.8 - May 5, 2016
+    Added option to save macros
+
+1.7 - Aug 8, 2015
     Fixed support for VS 2012/2013
 
 1.6 - Jul 21, 2015
