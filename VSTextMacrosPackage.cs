@@ -32,7 +32,7 @@ namespace VSTextMacros
                 Directory.CreateDirectory(MacroDirectory);
 
             if (File.Exists(Path.Combine(MacroDirectory, "Current.xml")))
-                Macro.LoadFromFile(Path.Combine(MacroDirectory, "Current.xml"));
+                Macro.CurrentMacro = Macro.LoadFromFile(Path.Combine(MacroDirectory, "Current.xml"));
 
             base.Initialize();
         }

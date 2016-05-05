@@ -42,7 +42,7 @@ namespace VSTextMacros
                     else
                     {
                         Macro.CurrentMacro.StopRecording();
-                        Macro.SaveToFile(Path.Combine(VSTextMacrosPackage.Current.MacroDirectory, "Current.xml"));
+                        Macro.SaveToFile(Macro.CurrentMacro, Path.Combine(VSTextMacrosPackage.Current.MacroDirectory, "Current.xml"));
                         AdornmentManager.HideVisual();
                     }
 
@@ -76,6 +76,28 @@ namespace VSTextMacros
                         Playback(Macro.CurrentMacro, dlg.Times);
                     }
 
+                    return VSConstants.S_OK;
+                }
+
+                // Save macro
+                if (nCmdID == PkgCmdIDList.idSaveMacro)
+                {
+                    if (Macro.CurrentMacro == null)
+                        MessageBox.Show("Can't save macro: no macro was recorded");
+                    else if (Macro.CurrentMacro.IsRecording)
+                        MessageBox.Show("Can't save macro: a macro is currently recording. Stop recording first.");
+                    else
+                        ShowSaveMacroDialog(Macro.CurrentMacro);
+
+                    return VSConstants.S_OK;
+                }
+
+                // Open saved macros
+                if (nCmdID == PkgCmdIDList.idOpenSavedMacros)
+                {
+                    var list = SavedMacros.GetMacroList();
+                    var dialog = new SavedMacrosDialog(list);
+                    dialog.ShowDialog();
                     return VSConstants.S_OK;
                 }
             }
@@ -135,8 +157,8 @@ namespace VSTextMacros
                         prgCmds[i].cmdf = (uint)(OLECMDF.OLECMDF_SUPPORTED | OLECMDF.OLECMDF_ENABLED);
                     }
 
-                    // Enables/disables the 'Playback' menu items
-                    if (prgCmds[i].cmdID == PkgCmdIDList.idPlaybackMacro || prgCmds[i].cmdID == PkgCmdIDList.idPlaybackMacroMultipleTimes)
+                    // Enables/disables the 'Playback' and 'Save Macro' menu items
+                    if (prgCmds[i].cmdID == PkgCmdIDList.idPlaybackMacro || prgCmds[i].cmdID == PkgCmdIDList.idPlaybackMacroMultipleTimes || prgCmds[i].cmdID == PkgCmdIDList.idSaveMacro)
                     {
                         if (Macro.CurrentMacro == null || Macro.CurrentMacro.IsRecording)
                             prgCmds[i].cmdf = (uint)(OLECMDF.OLECMDF_SUPPORTED);
@@ -178,6 +200,14 @@ namespace VSTextMacros
                 if (pvaIn != IntPtr.Zero)
                     Marshal.FreeCoTaskMem(pvaIn);
             }
+        }
+
+        // Shows the save macro dialog
+        private void ShowSaveMacroDialog(Macro macro, string name = null)
+        {
+            var dialog = new SaveMacroDialog(name);
+            if (dialog.ShowDialog() == DialogResult.OK)
+                SavedMacros.SaveMacro(macro, dialog.MacroName);
         }
 
         // Gets the character at the given pointer

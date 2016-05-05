@@ -32,6 +32,7 @@
                 <CommandFlag>TextChanges</CommandFlag>
                 <Strings>
                     <CommandName>RecordMacro</CommandName>
+                    <LocCanonicalName>RecordMacro</LocCanonicalName>
                     <ButtonText>&amp;Start/stop recording macro</ButtonText>
                 </Strings>
             </Button>
@@ -44,6 +45,7 @@
                 <CommandFlag>DefaultInvisible</CommandFlag>
                 <Strings>
                     <CommandName>PlaybackMacro</CommandName>
+                    <LocCanonicalName>PlaybackMacro</LocCanonicalName>
                     <ButtonText>&amp;Playback macro</ButtonText>
                 </Strings>
             </Button>
@@ -56,7 +58,30 @@
                 <CommandFlag>DefaultInvisible</CommandFlag>
                 <Strings>
                     <CommandName>PlaybackMacroMultipleTimes</CommandName>
+                    <LocCanonicalName>PlaybackMacroMultipleTimes</LocCanonicalName>
                     <ButtonText>Playback macro multiple &amp;times...</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidToolsGroup" id="idSaveMacro" priority="0xF204" type="Button">
+                <Parent guid="guidToolsGroup" id="idToolsGroup" />
+                <CommandFlag>DynamicVisibility</CommandFlag>
+                <CommandFlag>DontCache</CommandFlag>
+                <CommandFlag>DefaultDisabled</CommandFlag>
+                <CommandFlag>DefaultInvisible</CommandFlag>
+                <Strings>
+                    <CommandName>SaveMacro</CommandName>
+                    <LocCanonicalName>SaveMacro</LocCanonicalName>
+                    <ButtonText>&amp;Save Macro</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidToolsGroup" id="idOpenSavedMacros" priority="0xF205" type="Button">
+                <Parent guid="guidToolsGroup" id="idToolsGroup" />
+                <Strings>
+                    <CommandName>OpenSavedMacros</CommandName>
+                    <LocCanonicalName>OpenSavedMacros</LocCanonicalName>
+                    <ButtonText>&amp;Open Saved Macros</ButtonText>
                 </Strings>
             </Button>
             
@@ -65,9 +90,9 @@
     </Commands>
 
     <KeyBindings>
-        <KeyBinding guid="guidToolsGroup" id="idRecordMacro" mod1="Control Shift" key1="M" editor="guidVSStd97TextEditor" />
         <KeyBinding guid="guidToolsGroup" id="idRecordMacro" mod1="Control Shift" key1="R" editor="guidVSStd97TextEditor" />
         <KeyBinding guid="guidToolsGroup" id="idPlaybackMacro" mod1="Control Shift" key1="P" editor="guidVSStd97TextEditor" />
+        <KeyBinding guid="guidToolsGroup" id="idOpenSavedMacros" mod1="Control Shift" key1="M" editor="guidVSStd97" />
     </KeyBindings>
 
     <Symbols>
@@ -77,10 +102,12 @@
 
         <GuidSymbol name="guidToolsGroup" value="{15c6b4a6-7afb-4d55-97fe-c8191c3f5c47}">
             <IDSymbol name="idToolsGroup" value="0x1020" />
-            <IDSymbol name="idTextMacros" value="0x2001" />
+            <IDSymbol name="idTextMacros" value="0x2000" />
+            <IDSymbol name="idRecordMacro" value="0x2001" />
             <IDSymbol name="idPlaybackMacro" value="0x2002" />
-            <IDSymbol name="idPlaybackMacroMultipleTimes" value="0x2004" />
-            <IDSymbol name="idRecordMacro" value="0x2003" />
+            <IDSymbol name="idPlaybackMacroMultipleTimes" value="0x2003" />
+            <IDSymbol name="idSaveMacro" value="0x2004" />
+            <IDSymbol name="idOpenSavedMacros" value="0x2005" />
         </GuidSymbol>
         
     </Symbols>

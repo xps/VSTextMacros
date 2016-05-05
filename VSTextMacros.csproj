@@ -203,10 +203,23 @@
       <DependentUpon>RepeatMacroMultipleTimesDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="GuidList.cs" />
+    <Compile Include="Dialogs\SavedMacrosDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SavedMacrosDialog.Designer.cs">
+      <DependentUpon>SavedMacrosDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SaveMacroDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SaveMacroDialog.Designer.cs">
+      <DependentUpon>SaveMacroDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Macro.cs" />
     <Compile Include="MacroAdornmentManager.cs" />
     <Compile Include="Model\MacroCommand.cs" />
     <Compile Include="Model\RecordableCommands.cs" />
+    <Compile Include="Model\SavedMacro.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -223,6 +236,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Dialogs\RepeatMacroMultipleTimesDialog.resx">
       <DependentUpon>RepeatMacroMultipleTimesDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SavedMacrosDialog.resx">
+      <DependentUpon>SavedMacrosDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SaveMacroDialog.resx">
+      <DependentUpon>SaveMacroDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

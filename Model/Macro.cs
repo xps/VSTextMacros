@@ -14,8 +14,8 @@ namespace VSTextMacros.Model
         // Is this macro being recorded?
         public bool IsRecording { get; private set; }
 
-        // At this point we only deal with 1 macro at a time
-        public static Macro CurrentMacro { get; private set; }
+        // The current macro
+        public static Macro CurrentMacro { get; set; }
         
         // Constructor
         private Macro()
@@ -59,16 +59,15 @@ namespace VSTextMacros.Model
         }
 
         // Saves the current macro to a file
-        public static void SaveToFile(string filename)
+        public static void SaveToFile(Macro macro, string filename)
         {
-            if (CurrentMacro != null)
-                File.WriteAllText(filename, XmlHelpers.Serialize(CurrentMacro.Commands));
+            File.WriteAllText(filename, XmlHelpers.Serialize(macro.Commands));
         }
 
         // Loads the current macro from a file
-        public static void LoadFromFile(string filename)
+        public static Macro LoadFromFile(string filename)
         {
-            CurrentMacro = new Macro
+            return new Macro
             {
                 Commands = XmlHelpers.Deserialize<List<MacroCommand>>(File.ReadAllText(filename))
             };
