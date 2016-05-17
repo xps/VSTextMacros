@@ -50,6 +50,10 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.9 - May 17, 2016**
+
+ - Fixed saving macros (thanks to [Hung Dinh][9])
+
 **1.8 - May 5, 2016**
 
  - Added option to save macros
@@ -123,4 +127,5 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [6]: http://sublimetext.info/docs/en/extensibility/macros.html
  [7]: https://github.com/JoseJimeniz
  [8]: https://github.com/ijprest
+ [9]: https://github.com/nhdinh
  

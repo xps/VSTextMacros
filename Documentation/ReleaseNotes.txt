@@ -1,4 +1,7 @@
-﻿1.8 - May 5, 2016
+﻿1.9 - May 17, 2016
+    Fixed saving macros
+
+1.8 - May 5, 2016
     Added option to save macros
 
 1.7 - Aug 8, 2015
