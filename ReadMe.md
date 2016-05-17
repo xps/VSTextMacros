@@ -98,7 +98,7 @@ Want to contribute?
 ===============================
 
  - Let me know of any issues you may find (include a portion of text and keystroke sequence if it is a problem with a macro)
- - Fork the code and contribute bug fixes or new features (ability to save a macro, for instance)
+ - Fork the code and contribute bug fixes or new features
 
 License
 ===============================
