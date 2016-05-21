@@ -31,9 +31,11 @@ For example, here's what you would do if you just copied a few signatures from a
 You can change the shortcuts associated with the macro menus in Tools > Options > Environment > Keyboard.  
 Look for the following commands:
 
- - Tools.ToggleMacroRecording
+ - Tools.RecordMacro
  - Tools.PlaybackMacro
  - Tools.PlaybackMacroMultipleTimes
+ - Tools.SaveMacro
+ - Tools.OpenSavedMacros
 
 What can be recorded?
 ===============================
