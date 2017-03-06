@@ -48,7 +48,11 @@ Currently, here are the commands that can be recorded:
  - Characters that you type
  - Tabs, new lines, deletions
  - Some text editing commands from the Edit menu (to lowercase, to uppercase...)
+ 
+**Known limitations:**
 
+ - Find operations are not recorded (see [this issue][10] for details)
+ 
 Change Log
 ===============================
 
@@ -130,4 +134,4 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [7]: https://github.com/JoseJimeniz
  [8]: https://github.com/ijprest
  [9]: https://github.com/nhdinh
- 
+ [10]: https://github.com/xps/VSTextMacros/issues/1 
