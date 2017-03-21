@@ -109,8 +109,8 @@ Want to contribute?
 License
 ===============================
 
-Text Macros for Visual Studio 2012/2013/2015
-Copyright (C) 2016 Xavier Poinas
+Text Macros for Visual Studio
+Copyright (C) 2012-2017 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
