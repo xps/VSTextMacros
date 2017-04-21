@@ -4,6 +4,8 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using VSTextMacros.Model;
+using EnvDTE80;
+using EnvDTE;
 
 namespace VSTextMacros
 {
@@ -21,6 +23,8 @@ namespace VSTextMacros
             get { return Path.Combine(this.UserLocalDataPath, "Macros"); }
         }
 
+        public DTE2 DTE { get; private set; }
+
         public VSTextMacrosPackage()
         {
             Current = this;
@@ -33,6 +37,8 @@ namespace VSTextMacros
 
             if (File.Exists(Path.Combine(MacroDirectory, "Current.xml")))
                 Macro.CurrentMacro = Macro.LoadFromFile(Path.Combine(MacroDirectory, "Current.xml"));
+
+            DTE = (DTE2)GetService(typeof(DTE));
 
             base.Initialize();
         }
