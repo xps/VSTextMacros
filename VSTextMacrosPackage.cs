@@ -1,16 +1,16 @@
-﻿using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.Shell;
-using System;
+﻿using System;
 using System.IO;
 using System.Runtime.InteropServices;
-using VSTextMacros.Model;
-using EnvDTE80;
 using EnvDTE;
+using EnvDTE80;
+using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell;
+using VSTextMacros.Model;
 
 namespace VSTextMacros
 {
     [PackageRegistration(UseManagedResourcesOnly = true)]
-    [InstalledProductRegistration("#110", "#112", "1.9", IconResourceID = 400)]
+    [InstalledProductRegistration("#110", "#112", "1.10", IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid(GuidList.guidVSTextMacrosPkgString)]
     [ProvideAutoLoad(VSConstants.UICONTEXT.NoSolution_string)]

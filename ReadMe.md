@@ -1,13 +1,16 @@
 What is it?
 ===============================
 
-An extension for Visual Studio 2012/2013/2015 that brings back support for macros in text/code editors. These macros can be used to automate repetitive text editing tasks.
+An extension for Visual Studio 2012-2017 that brings back support for macros in text/code editors. These macros can be used to automate repetitive text editing tasks.
 
 You may have used such macros in previous versions of Visual Studio. Indeed, macros used to be supported and [removed][5] in Visual Studio 2010.
 
 Although macros used to be very sophisticated at the time, letting you control almost any feature of Visual Studio, this extension only aims at supporting the text editing part of macros.
 
 And if you have not used Visual Studio macros before, you may have used them in other text editors such as [Notepad++][1] or [Sublime text][6]. If you have, then you already know how to use this extension.
+
+**This extension is compatible with Visual Studio 2017**
+There is a warning when trying to install on Visual Studio 2017, but you can safely ignore it.
 
 Download
 ===============================
@@ -51,10 +54,15 @@ Currently, here are the commands that can be recorded:
  
 **Known limitations:**
 
- - Find operations are not recorded (see [this issue][10] for details)
+ - Find operations are not recorded  (more details [here][10]).
+ - Recording copy/paste operations does not work well when the Productivity Power Tools extension is installed (more details [here][12])
  
 Change Log
 ===============================
+
+**1.10 - Apr 23, 2017**
+ - Support for Visual Studio 2017
+ - Playback macros in a single undo transaction (thanks to [Yves Goergen][11])
 
 **1.9 - May 17, 2016**
 
@@ -74,7 +82,7 @@ Change Log
 
 **1.5 - Jul 8, 2014**
 
- - Added "Edit.LineFirstColumn" as a recordable command (thanks to [JoseJiminiz][7]).
+ - Added "Edit.LineFirstColumn" as a recordable command (thanks to [Jose Jiminiz][7]).
 
 **1.4 - Dec 7, 2013**
 
@@ -135,3 +143,5 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [8]: https://github.com/ijprest
  [9]: https://github.com/nhdinh
  [10]: https://github.com/xps/VSTextMacros/issues/1 
+ [11]: https://github.com/ygoe
+ [12]: https://github.com/xps/VSTextMacros/issues/14

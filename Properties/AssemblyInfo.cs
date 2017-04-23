@@ -7,8 +7,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Text Macros for Visual Studio 2012/2013/2015")]
-[assembly: AssemblyDescription("Brings back text-editing macro support in Visual Studio 2012/2013/2015")]
+[assembly: AssemblyTitle("Text Macros for Visual Studio 2012-2017")]
+[assembly: AssemblyDescription("Brings back text-editing macro support in Visual Studio 2012-2017")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Xavier Poinas")]
 [assembly: AssemblyProduct("Text Macros for Visual Studio")]
@@ -28,4 +28,4 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.9.*")]
+[assembly: AssemblyVersion("1.10.*")]
