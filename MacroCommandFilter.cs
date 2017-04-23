@@ -176,6 +176,10 @@ namespace VSTextMacros
         // Replays a macro
         private void Playback(Macro macro, int times = 1)
         {
+            bool ownUndoContext = !VSTextMacrosPackage.Current.DTE.UndoContext.IsOpen;
+            if (ownUndoContext)
+                VSTextMacrosPackage.Current.DTE.UndoContext.Open("Macro");
+
             var pvaIn = Marshal.AllocCoTaskMem(16);
             try
             {
@@ -200,6 +204,9 @@ namespace VSTextMacros
                 if (pvaIn != IntPtr.Zero)
                     Marshal.FreeCoTaskMem(pvaIn);
             }
+
+            if (ownUndoContext)
+                VSTextMacrosPackage.Current.DTE.UndoContext.Close();
         }
 
         // Shows the save macro dialog
