@@ -15,7 +15,7 @@ There is a warning when trying to install on Visual Studio 2017, but you can saf
 Download
 ===============================
 
-You can download the VSIX installer from the [Visual Studio Gallery][4].
+You can download the VSIX installer from the [Visual Studio Marketplace][4].
 
 How does it work?
 ===============================
@@ -136,7 +136,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [1]: http://notepad-plus-plus.org
  [2]: https://raw.github.com/xps/VSTextMacros/master/Documentation/screenshot.png
  [3]: https://github.com/xps/VSTextMacros/raw/master/Documentation/example.gif
- [4]: http://visualstudiogallery.msdn.microsoft.com/8e2103b6-87cf-4fef-9410-a580c434b602
+ [4]: https://marketplace.visualstudio.com/items?itemName=XavierPoinas.TextMacrosforVisualStudio201220132015
  [5]: http://social.msdn.microsoft.com/Forums/en-US/vsx/thread/d8410838-085b-4647-8c42-e31b669c9f11
  [6]: http://sublimetext.info/docs/en/extensibility/macros.html
  [7]: https://github.com/JoseJimeniz
