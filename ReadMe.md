@@ -7,10 +7,7 @@ You may have used such macros in previous versions of Visual Studio. Indeed, mac
 
 Although macros used to be very sophisticated at the time, letting you control almost any feature of Visual Studio, this extension only aims at supporting the text editing part of macros.
 
-And if you have not used Visual Studio macros before, you may have used them in other text editors such as [Notepad++][1] or [Sublime text][6]. If you have, then you already know how to use this extension.
-
-**This extension is compatible with Visual Studio 2017**
-There is a warning when trying to install on Visual Studio 2017, but you can safely ignore it.
+And if you have not used Visual Studio macros before, you may have used them in other text editors such as [Notepad++][1] or [Sublime Text][6]. If you have, then you already know how to use this extension.
 
 Download
 ===============================
