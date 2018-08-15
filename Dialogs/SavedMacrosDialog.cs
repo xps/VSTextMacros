@@ -21,12 +21,12 @@ namespace VSTextMacros.Dialogs
             macroListBox.DataSource = macros;
         }
         
-        private void loadButton_Click(object sender, EventArgs e)
+        private void LoadButton_Click(object sender, EventArgs e)
         {
             LoadSelectedMacro();
         }
 
-        private void renameButton_Click(object sender, EventArgs e)
+        private void RenameButton_Click(object sender, EventArgs e)
         {
             var macro = macroListBox.SelectedItem as SavedMacro;
             if (macro != null)
@@ -35,7 +35,33 @@ namespace VSTextMacros.Dialogs
             }
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
+        private void MoveUpButton_Click(object sender, EventArgs e)
+        {
+            var macro = macroListBox.SelectedItem as SavedMacro;
+            var index = macros.IndexOf(macro);
+            if (index > 0)
+            {
+                var temp = macros[index - 1];
+                macros[index - 1] = macro;
+                macros[index] = temp;
+                macroListBox.SelectedIndex = index - 1;
+            }
+        }
+
+        private void MoveDownButton_Click(object sender, EventArgs e)
+        {
+            var macro = macroListBox.SelectedItem as SavedMacro;
+            var index = macros.IndexOf(macro);
+            if (index < macros.Count - 1)
+            {
+                var temp = macros[index + 1];
+                macros[index + 1] = macro;
+                macros[index] = temp;
+                macroListBox.SelectedIndex = index + 1;
+            }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
             var macro = macroListBox.SelectedItem as SavedMacro;
             if (macro != null)
@@ -45,7 +71,7 @@ namespace VSTextMacros.Dialogs
             }
         }
 
-        private void macroListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void MacroListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             LoadSelectedMacro();
         }

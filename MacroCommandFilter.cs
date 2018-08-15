@@ -29,7 +29,7 @@ namespace VSTextMacros
         // Executes the menu commands and does the recording of other commands
         public int Exec(ref Guid pguidCmdGroup, uint nCmdID, uint nCmdexecopt, IntPtr pvaIn, IntPtr pvaOut)
         {
-            if (pguidCmdGroup == GuidList.guidToolsGroup)
+            if (pguidCmdGroup == GuidList.guidMacrosCmdSet)
             {
                 // Record/stop
                 if (nCmdID == PkgCmdIDList.idRecordMacro)
@@ -61,7 +61,7 @@ namespace VSTextMacros
 
                     return VSConstants.S_OK;
                 }
-
+                
                 // Playback multiple times
                 if (nCmdID == PkgCmdIDList.idPlaybackMacroMultipleTimes)
                 {
@@ -102,6 +102,23 @@ namespace VSTextMacros
                 }
             }
 
+            if (pguidCmdGroup == GuidList.guidMacrosRunSavedCmdSet)
+            {
+                // Run saved macro #
+                if (nCmdID >= PkgCmdIDList.idRunSavedMacro1 && nCmdID <= PkgCmdIDList.idRunSavedMacro5)
+                {
+                    var index = nCmdID - PkgCmdIDList.idRunSavedMacro1;
+                    var macroList = SavedMacros.GetMacroList();
+                    if (index < macroList.Count)
+                    {
+                        var macro = SavedMacros.GetSavedMacro(macroList[(int)index].Guid);
+                        Playback(macro);
+                    }
+
+                    return VSConstants.S_OK;
+                }
+            }
+
             // Are we recording?
             if (Macro.CurrentMacro != null && Macro.CurrentMacro.IsRecording)
             {
@@ -128,7 +145,7 @@ namespace VSTextMacros
         // Updates menus states
         public int QueryStatus(ref Guid pguidCmdGroup, uint cCmds, OLECMD[] prgCmds, IntPtr pCmdText)
         {
-            if (pguidCmdGroup == GuidList.guidToolsGroup)
+            if (pguidCmdGroup == GuidList.guidMacrosCmdSet)
             {
                 // Arguments check
                 if (prgCmds == null)
@@ -170,13 +187,37 @@ namespace VSTextMacros
                 return VSConstants.S_OK;
             }
 
+            if (pguidCmdGroup == GuidList.guidMacrosRunSavedCmdSet)
+            {
+                // Arguments check
+                if (prgCmds == null)
+                    return VSConstants.E_POINTER;
+
+                for (int i = 0; i < cCmds; i++)
+                {
+                    if (prgCmds[i].cmdID >= PkgCmdIDList.idRunSavedMacro1 && prgCmds[i].cmdID <= PkgCmdIDList.idRunSavedMacro5)
+                    {
+                        var index = prgCmds[i].cmdID - PkgCmdIDList.idRunSavedMacro1;
+                        var macros = SavedMacros.GetMacroList();
+                        var enabled = index < macros.Count;
+
+                        if (enabled)
+                            prgCmds[i].cmdf = (uint)(OLECMDF.OLECMDF_SUPPORTED | OLECMDF.OLECMDF_ENABLED);
+                        else
+                            prgCmds[i].cmdf = (uint)(OLECMDF.OLECMDF_SUPPORTED);
+                    }
+                }
+
+                return VSConstants.S_OK;
+            }
+
             return Next.QueryStatus(ref pguidCmdGroup, cCmds, prgCmds, pCmdText);
         }
 
         // Replays a macro
         private void Playback(Macro macro, int times = 1)
         {
-            bool ownUndoContext = !VSTextMacrosPackage.Current.DTE.UndoContext.IsOpen;
+            var ownUndoContext = !VSTextMacrosPackage.Current.DTE.UndoContext.IsOpen;
             if (ownUndoContext)
                 VSTextMacrosPackage.Current.DTE.UndoContext.Open("Macro");
 

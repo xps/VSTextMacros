@@ -7,7 +7,7 @@
     <Commands package="guidVSTextMacrosPkg">
 
         <Menus>
-            <Menu guid="guidToolsGroup" id="idTextMacros" type="Menu" priority="0x600">
+            <Menu guid="guidMacrosCmdSet" id="idTextMacros" type="Menu" priority="0x600">
                 <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOLS_OTHER2" />
                 <Strings>
                     <ButtonText>&amp;Text Macros</ButtonText>
@@ -16,15 +16,18 @@
         </Menus>
 
         <Groups>
-            <Group guid="guidToolsGroup" id="idToolsGroup" priority="0x100">
-                <Parent guid="guidToolsGroup" id="idTextMacros" />
+            <Group guid="guidMacrosCmdSet" id="idMacrosGroup" priority="0x100">
+                <Parent guid="guidMacrosCmdSet" id="idTextMacros"/>
+            </Group>
+            <Group guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" priority="0x100">
+                <Parent guid="guidMacrosCmdSet" id="idTextMacros"/>
             </Group>
         </Groups>
 
         <Buttons>
 
-            <Button guid="guidToolsGroup" id="idRecordMacro" priority="0xF201" type="Button">
-                <Parent guid="guidToolsGroup" id="idToolsGroup" />
+            <Button guid="guidMacrosCmdSet" id="idRecordMacro" priority="0xF201" type="Button">
+                <Parent guid="guidMacrosCmdSet" id="idMacrosGroup" />
                 <CommandFlag>DynamicVisibility</CommandFlag>
                 <CommandFlag>DontCache</CommandFlag>
                 <CommandFlag>DefaultDisabled</CommandFlag>
@@ -37,8 +40,8 @@
                 </Strings>
             </Button>
 
-            <Button guid="guidToolsGroup" id="idPlaybackMacro" priority="0xF202" type="Button">
-                <Parent guid="guidToolsGroup" id="idToolsGroup" />
+            <Button guid="guidMacrosCmdSet" id="idPlaybackMacro" priority="0xF202" type="Button">
+                <Parent guid="guidMacrosCmdSet" id="idMacrosGroup" />
                 <CommandFlag>DynamicVisibility</CommandFlag>
                 <CommandFlag>DontCache</CommandFlag>
                 <CommandFlag>DefaultDisabled</CommandFlag>
@@ -50,8 +53,8 @@
                 </Strings>
             </Button>
 
-            <Button guid="guidToolsGroup" id="idPlaybackMacroMultipleTimes" priority="0xF203" type="Button">
-                <Parent guid="guidToolsGroup" id="idToolsGroup" />
+            <Button guid="guidMacrosCmdSet" id="idPlaybackMacroMultipleTimes" priority="0xF203" type="Button">
+                <Parent guid="guidMacrosCmdSet" id="idMacrosGroup" />
                 <CommandFlag>DynamicVisibility</CommandFlag>
                 <CommandFlag>DontCache</CommandFlag>
                 <CommandFlag>DefaultDisabled</CommandFlag>
@@ -63,8 +66,8 @@
                 </Strings>
             </Button>
 
-            <Button guid="guidToolsGroup" id="idSaveMacro" priority="0xF204" type="Button">
-                <Parent guid="guidToolsGroup" id="idToolsGroup" />
+            <Button guid="guidMacrosCmdSet" id="idSaveMacro" priority="0xF204" type="Button">
+                <Parent guid="guidMacrosCmdSet" id="idMacrosGroup" />
                 <CommandFlag>DynamicVisibility</CommandFlag>
                 <CommandFlag>DontCache</CommandFlag>
                 <CommandFlag>DefaultDisabled</CommandFlag>
@@ -76,12 +79,57 @@
                 </Strings>
             </Button>
 
-            <Button guid="guidToolsGroup" id="idOpenSavedMacros" priority="0xF205" type="Button">
-                <Parent guid="guidToolsGroup" id="idToolsGroup" />
+            <Button guid="guidMacrosCmdSet" id="idOpenSavedMacros" priority="0xF205" type="Button">
+                <Parent guid="guidMacrosCmdSet" id="idMacrosGroup" />
                 <Strings>
                     <CommandName>OpenSavedMacros</CommandName>
                     <LocCanonicalName>OpenSavedMacros</LocCanonicalName>
                     <ButtonText>&amp;Open Saved Macros</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro1" priority="0xF201" type="Button">
+                <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <Strings>
+                    <CommandName>RunSavedMacro1</CommandName>
+                    <LocCanonicalName>RunSavedMacro1</LocCanonicalName>
+                    <ButtonText>Run Saved Macro &amp;1</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro2" priority="0xF202" type="Button">
+                <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <Strings>
+                    <CommandName>RunSavedMacro2</CommandName>
+                    <LocCanonicalName>RunSavedMacro2</LocCanonicalName>
+                    <ButtonText>Run Saved Macro &amp;2</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro3" priority="0xF203" type="Button">
+                <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <Strings>
+                    <CommandName>RunSavedMacro3</CommandName>
+                    <LocCanonicalName>RunSavedMacro3</LocCanonicalName>
+                    <ButtonText>Run Saved Macro &amp;3</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro4" priority="0xF204" type="Button">
+                <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <Strings>
+                    <CommandName>RunSavedMacro4</CommandName>
+                    <LocCanonicalName>RunSavedMacro4</LocCanonicalName>
+                    <ButtonText>Run Saved Macro &amp;4</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro5" priority="0xF205" type="Button">
+                <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <Strings>
+                    <CommandName>RunSavedMacro5</CommandName>
+                    <LocCanonicalName>RunSavedMacro5</LocCanonicalName>
+                    <ButtonText>Run Saved Macro &amp;5</ButtonText>
                 </Strings>
             </Button>
             
@@ -90,9 +138,15 @@
     </Commands>
 
     <KeyBindings>
-        <KeyBinding guid="guidToolsGroup" id="idRecordMacro" mod1="Control Shift" key1="R" editor="guidVSStd97TextEditor" />
-        <KeyBinding guid="guidToolsGroup" id="idPlaybackMacro" mod1="Control Shift" key1="P" editor="guidVSStd97TextEditor" />
-        <KeyBinding guid="guidToolsGroup" id="idOpenSavedMacros" mod1="Control Shift" key1="M" editor="guidVSStd97" />
+        <KeyBinding guid="guidMacrosCmdSet" id="idRecordMacro" mod1="Control Shift" key1="R" editor="guidVSStd97TextEditor" />
+        <KeyBinding guid="guidMacrosCmdSet" id="idPlaybackMacro" mod1="Control Shift" key1="P" editor="guidVSStd97TextEditor" />
+        <KeyBinding guid="guidMacrosCmdSet" id="idOpenSavedMacros" mod1="Control Shift" key1="M" editor="guidVSStd97" />
+        
+        <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro1" mod1="Control" key1="M" key2="1" editor="guidVSStd97" />
+        <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro2" mod1="Control" key1="M" key2="2" editor="guidVSStd97" />
+        <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro3" mod1="Control" key1="M" key2="3" editor="guidVSStd97" />
+        <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro4" mod1="Control" key1="M" key2="4" editor="guidVSStd97" />
+        <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro5" mod1="Control" key1="M" key2="5" editor="guidVSStd97" />
     </KeyBindings>
 
     <Symbols>
@@ -100,14 +154,23 @@
         <GuidSymbol name="guidVSTextMacrosPkg" value="{6d613d99-e83f-4532-a1d8-e188e419460c}" />
         <GuidSymbol name="guidVSStd97TextEditor" value="{8b382828-6202-11d1-8870-0000f87579d2}" />
 
-        <GuidSymbol name="guidToolsGroup" value="{15c6b4a6-7afb-4d55-97fe-c8191c3f5c47}">
-            <IDSymbol name="idToolsGroup" value="0x1020" />
+        <GuidSymbol name="guidMacrosCmdSet" value="{15c6b4a6-7afb-4d55-97fe-c8191c3f5c47}">
+            <IDSymbol name="idMacrosGroup" value="0x1020" />
             <IDSymbol name="idTextMacros" value="0x2000" />
             <IDSymbol name="idRecordMacro" value="0x2001" />
             <IDSymbol name="idPlaybackMacro" value="0x2002" />
             <IDSymbol name="idPlaybackMacroMultipleTimes" value="0x2003" />
             <IDSymbol name="idSaveMacro" value="0x2004" />
             <IDSymbol name="idOpenSavedMacros" value="0x2005" />
+        </GuidSymbol>
+
+        <GuidSymbol name="guidMacrosRunSavedCmdSet" value="{b45e7f34-883c-4fb9-a3b1-dd902b9246bb}">
+            <IDSymbol name="idRunSavedMacrosGroup" value="0x1021" />
+            <IDSymbol name="idRunSavedMacro1" value="0x2101" />
+            <IDSymbol name="idRunSavedMacro2" value="0x2102" />
+            <IDSymbol name="idRunSavedMacro3" value="0x2103" />
+            <IDSymbol name="idRunSavedMacro4" value="0x2104" />
+            <IDSymbol name="idRunSavedMacro5" value="0x2105" />
         </GuidSymbol>
         
     </Symbols>
