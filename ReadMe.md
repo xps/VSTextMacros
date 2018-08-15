@@ -9,10 +9,12 @@ Although macros used to be very sophisticated at the time, letting you control a
 
 And if you have not used Visual Studio macros before, you may have used them in other text editors such as [Notepad++][1] or [Sublime Text][6]. If you have, then you already know how to use this extension.
 
+
 Download
 ===============================
 
 You can download the VSIX installer from the [Visual Studio Marketplace][4].
+
 
 How does it work?
 ===============================
@@ -36,6 +38,10 @@ Look for the following commands:
  - Tools.PlaybackMacroMultipleTimes
  - Tools.SaveMacro
  - Tools.OpenSavedMacros
+ - Tools.RunSavedMacro1
+ - Tools.RunSavedMacro2
+ - ...
+
 
 What can be recorded?
 ===============================
@@ -54,9 +60,13 @@ Currently, here are the commands that can be recorded:
  - Find operations are not recorded  (more details [here][10]).
  - Recording copy/paste operations does not work well when the Productivity Power Tools extension is installed (more details [here][12])
  
+ 
 Change Log
 ===============================
 
+**1.11 - Aug 15, 2018**
+ - Added shortcuts to run saved macros
+ 
 **1.10 - Apr 23, 2017**
  - Support for Visual Studio 2017
  - Playback macros in a single undo transaction (thanks to [Yves Goergen][11])
@@ -105,17 +115,19 @@ Change Log
 
  - Initial version
 
+
 Want to contribute?
 ===============================
 
  - Let me know of any issues you may find (include a portion of text and keystroke sequence if it is a problem with a macro)
  - Fork the code and contribute bug fixes or new features
 
+
 License
 ===============================
 
 Text Macros for Visual Studio
-Copyright (C) 2012-2017 Xavier Poinas
+Copyright (C) 2012-2018 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
