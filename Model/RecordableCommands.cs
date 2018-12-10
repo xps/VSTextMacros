@@ -72,8 +72,16 @@ namespace VSTextMacros.Model
                     (uint)VSConstants.VSStd2KCmdID.DELETEBLANKLINES,
                     (uint)VSConstants.VSStd2KCmdID.INDENT,
                     (uint)VSConstants.VSStd2KCmdID.UNINDENT,
-                    (uint)VSConstants.VSStd2KCmdID.EditorLineFirstColumn, //Editor line first column (Edit.LineFirstColumn)
-                    (uint)VSConstants.VSStd2KCmdID.EditorLineFirstColumnExtend //Editor line first column extended (Edit.LineFirstColumnExtend)
+                    (uint)VSConstants.VSStd2KCmdID.EditorLineFirstColumn,
+                    (uint)VSConstants.VSStd2KCmdID.EditorLineFirstColumnExtend,
+                    (uint)VSConstants.VSStd2KCmdID.GOTOBRACE,
+                    (uint)VSConstants.VSStd2KCmdID.GOTOBRACE_EXT,
+                    (uint)VSConstants.VSStd2KCmdID.OUTLN_HIDE_SELECTION,
+                    (uint)VSConstants.VSStd2KCmdID.OUTLN_TOGGLE_CURRENT,
+                    (uint)VSConstants.VSStd2KCmdID.OUTLN_TOGGLE_ALL,
+                    (uint)VSConstants.VSStd2KCmdID.OUTLN_STOP_HIDING_ALL,
+                    (uint)VSConstants.VSStd2KCmdID.OUTLN_STOP_HIDING_CURRENT,
+                    (uint)VSConstants.VSStd2KCmdID.OUTLN_COLLAPSE_TO_DEF
                 }
             },
             {
