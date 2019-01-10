@@ -64,6 +64,9 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.12 - Dec 10, 2018**
+ - New recorded commands: "Go to brace" and outlining commands
+
 **1.11 - Aug 15, 2018**
  - Added shortcuts to run saved macros
  
