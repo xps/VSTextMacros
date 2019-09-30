@@ -1,3 +1,9 @@
+**THE CURRENT VERSION WORKS WITH VISUAL STUDIO 2019**
+
+For Visual Studio 2012 to 2017, please download and install this version:
+https://github.com/xps/VSTextMacros/releases/download/1.12/VSTextMacros-1.12.vsix
+
+
 What is it?
 ===============================
 
@@ -63,6 +69,9 @@ Currently, here are the commands that can be recorded:
  
 Change Log
 ===============================
+
+**1.13 - Sep 30, 2019**
+ - Support for Visual Studio 2019 (thanks to [viniciusvillas][13])
 
 **1.12 - Dec 10, 2018**
  - New recorded commands: "Go to brace" and outlining commands
@@ -157,3 +166,4 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [10]: https://github.com/xps/VSTextMacros/issues/1 
  [11]: https://github.com/ygoe
  [12]: https://github.com/xps/VSTextMacros/issues/14
+ [13]: https://github.com/viniciusvillas

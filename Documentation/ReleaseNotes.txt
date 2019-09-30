@@ -1,4 +1,7 @@
-﻿1.12 - Dec 10, 2018
+﻿1.13 - Sep 30, 2019
+    Support for Visual Studio 2019
+
+1.12 - Dec 10, 2018
     New recorded commands: "Go to brace" and outlining commands
 
 1.11 - Aug 15, 2018

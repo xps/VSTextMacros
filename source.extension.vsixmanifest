@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="6d613d99-e83f-4532-a1d8-e188e419460c" Version="1.12" Language="en-US" Publisher="Xavier Poinas" />
+        <Identity Id="6d613d99-e83f-4532-a1d8-e188e419460c" Version="1.13" Language="en-US" Publisher="Xavier Poinas" />
         <DisplayName>Text Macros for Visual Studio 2019</DisplayName>
         <Description xml:space="preserve">Brings back text-editing/keyboard macro support in VS 2019</Description>
         <MoreInfo>https://github.com/xps/vstextmacros</MoreInfo>
@@ -11,16 +11,16 @@
         <Tags>Productivity, Macros, Editor, Visual Studio</Tags>
     </Metadata>
     <Installation InstalledByMsi="false">
-        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[11.0,17.0)" />
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[11.0,17.0)" />
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[11.0,17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[16.0,17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0,17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[16.0,17.0)" />
     </Installation>
     <Dependencies>
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.7.2,]" d:InstallSource="Download" />
         <Dependency Id="Microsoft.VisualStudio.MPF.16.0" DisplayName="Visual Studio MPF 16.0" d:Source="Installed" Version="[16.0,17.0)" />
     </Dependencies>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[11.0,17.0)" DisplayName="Microsoft.VisualStudio.Component.CoreEditor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Microsoft.VisualStudio.Component.CoreEditor" />
     </Prerequisites>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
