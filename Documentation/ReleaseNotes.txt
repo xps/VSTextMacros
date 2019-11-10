@@ -1,4 +1,7 @@
-﻿1.13 - Sep 30, 2019
+﻿1.14 - Nov 10, 2019
+    Fixed reodering macros
+
+1.13 - Sep 30, 2019
     Support for Visual Studio 2019
 
 1.12 - Dec 10, 2018

@@ -70,6 +70,9 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.14 - Nov 10, 2019**
+ - Fixed reordering macros
+
 **1.13 - Sep 30, 2019**
  - Support for Visual Studio 2019 (thanks to [viniciusvillas][13])
 
