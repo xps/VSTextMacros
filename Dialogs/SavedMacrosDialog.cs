@@ -45,6 +45,7 @@ namespace VSTextMacros.Dialogs
                 macros[index - 1] = macro;
                 macros[index] = temp;
                 macroListBox.SelectedIndex = index - 1;
+                SavedMacros.SaveMacroList(macros);
             }
         }
 
@@ -58,6 +59,7 @@ namespace VSTextMacros.Dialogs
                 macros[index + 1] = macro;
                 macros[index] = temp;
                 macroListBox.SelectedIndex = index + 1;
+                SavedMacros.SaveMacroList(macros);
             }
         }
 

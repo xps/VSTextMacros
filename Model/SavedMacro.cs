@@ -44,7 +44,7 @@ namespace VSTextMacros.Model
 		}
 
 		// Saves the macro list to List.xml
-		private static void SaveMacroList(IEnumerable<SavedMacro> list)
+		public static void SaveMacroList(IEnumerable<SavedMacro> list)
 		{
 			var filename = Path.Combine(VSTextMacrosPackage.Current.MacroDirectory, "List.xml");
 			var xml = XmlHelpers.Serialize(list);
