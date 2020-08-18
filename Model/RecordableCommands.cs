@@ -97,7 +97,12 @@ namespace VSTextMacros.Model
                     (uint)VSConstants.VSStd97CmdID.MultiLevelRedo,
                     (uint)VSConstants.VSStd97CmdID.SelectAll,
                     (uint)VSConstants.VSStd97CmdID.Undo,
-                    (uint)VSConstants.VSStd97CmdID.SaveProjectItem
+                    (uint)VSConstants.VSStd97CmdID.SaveProjectItem,
+                    // Support to find features.
+                    (uint)VSConstants.VSStd97CmdID.FindNext,
+                    (uint)VSConstants.VSStd97CmdID.FindPrev,
+                    (uint)VSConstants.VSStd97CmdID.FindSelectedNext,
+                    (uint)VSConstants.VSStd97CmdID.FindSelectedPrev
                 }
             },
             {
