@@ -35,16 +35,9 @@ namespace VSTextMacros
                 if (nCmdID == PkgCmdIDList.idRecordMacro)
                 {
                     if (Macro.CurrentMacro == null || !Macro.CurrentMacro.IsRecording)
-                    {
-                        Macro.StartNew();
-                        AdornmentManager.ShowVisual();
-                    }
+                        StartRecording();
                     else
-                    {
-                        Macro.CurrentMacro.StopRecording();
-                        Macro.SaveToFile(Macro.CurrentMacro, Path.Combine(VSTextMacrosPackage.Current.MacroDirectory, "Current.xml"));
-                        AdornmentManager.HideVisual();
-                    }
+                        StopRecording();
 
                     return VSConstants.S_OK;
                 }
@@ -53,11 +46,15 @@ namespace VSTextMacros
                 if (nCmdID == PkgCmdIDList.idPlaybackMacro)
                 {
                     if (Macro.CurrentMacro == null)
+                    {
                         MessageBox.Show("Can't playback: no macro was recorded");
-                    else if (Macro.CurrentMacro.IsRecording)
-                        MessageBox.Show("Can't playback: a macro is currently recording. Stop recording first.");
+                    }
                     else
+                    {
+                        if (Macro.CurrentMacro.IsRecording)
+                            StopRecording();
                         Playback(Macro.CurrentMacro);
+                    }
 
                     return VSConstants.S_OK;
                 }
@@ -66,11 +63,14 @@ namespace VSTextMacros
                 if (nCmdID == PkgCmdIDList.idPlaybackMacroMultipleTimes)
                 {
                     if (Macro.CurrentMacro == null)
+                    {
                         MessageBox.Show("Can't playback: no macro was recorded");
-                    else if (Macro.CurrentMacro.IsRecording)
-                        MessageBox.Show("Can't playback: a macro is currently recording. Stop recording first.");
+                    }
                     else
                     {
+                        if (Macro.CurrentMacro.IsRecording)
+                            StopRecording();
+
                         var dlg = new RepeatMacroMultipleTimesDialog();
                         dlg.ShowDialog();
                         Playback(Macro.CurrentMacro, dlg.Times);
@@ -83,11 +83,16 @@ namespace VSTextMacros
                 if (nCmdID == PkgCmdIDList.idSaveMacro)
                 {
                     if (Macro.CurrentMacro == null)
+                    {
                         MessageBox.Show("Can't save macro: no macro was recorded");
-                    else if (Macro.CurrentMacro.IsRecording)
-                        MessageBox.Show("Can't save macro: a macro is currently recording. Stop recording first.");
+                    }
                     else
+                    {
+                        if (Macro.CurrentMacro.IsRecording)
+                            StopRecording();
+
                         ShowSaveMacroDialog(Macro.CurrentMacro);
+                    }
 
                     return VSConstants.S_OK;
                 }
@@ -177,7 +182,7 @@ namespace VSTextMacros
                     // Enables/disables the 'Playback' and 'Save Macro' menu items
                     if (prgCmds[i].cmdID == PkgCmdIDList.idPlaybackMacro || prgCmds[i].cmdID == PkgCmdIDList.idPlaybackMacroMultipleTimes || prgCmds[i].cmdID == PkgCmdIDList.idSaveMacro)
                     {
-                        if (Macro.CurrentMacro == null || Macro.CurrentMacro.IsRecording)
+                        if (Macro.CurrentMacro == null)
                             prgCmds[i].cmdf = (uint)(OLECMDF.OLECMDF_SUPPORTED);
                         else
                             prgCmds[i].cmdf = (uint)(OLECMDF.OLECMDF_SUPPORTED | OLECMDF.OLECMDF_ENABLED);
@@ -212,6 +217,21 @@ namespace VSTextMacros
             }
 
             return Next.QueryStatus(ref pguidCmdGroup, cCmds, prgCmds, pCmdText);
+        }
+
+        // Starts recording a macro
+        private void StartRecording()
+        {
+            Macro.StartNew();
+            AdornmentManager.ShowVisual();
+        }
+
+        // Stops recording a macro
+        private void StopRecording()
+        {
+            Macro.CurrentMacro.StopRecording();
+            Macro.SaveToFile(Macro.CurrentMacro, Path.Combine(VSTextMacrosPackage.Current.MacroDirectory, "Current.xml"));
+            AdornmentManager.HideVisual();
         }
 
         // Replays a macro
