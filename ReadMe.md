@@ -64,7 +64,6 @@ Currently, here are the commands that can be recorded:
  
 **Known limitations:**
 
- - Find operations are not recorded  (more details [here][10]).
  - Recording copy/paste operations does not work well when the Productivity Power Tools extension is installed (more details [here][12])
  
  
@@ -130,7 +129,7 @@ Change Log
 **1.1 - Feb 8, 2013**
 
  - Added visual cue while recording
- - Currrent macro now persists across sessions
+ - Current macro now persists across sessions
 
 **1.0 - Nov 13, 2012**
 
@@ -148,7 +147,7 @@ License
 ===============================
 
 Text Macros for Visual Studio
-Copyright (C) 2012-2018 Xavier Poinas
+Copyright (C) 2012-2020 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
