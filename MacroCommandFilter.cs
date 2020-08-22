@@ -161,18 +161,18 @@ namespace VSTextMacros
                     // Updates the text of the 'Start/Stop Recording' menu item
                     if (prgCmds[i].cmdID == PkgCmdIDList.idRecordMacro)
                     {
-                        string menuText;
-                        if (Macro.CurrentMacro == null || !Macro.CurrentMacro.IsRecording)
-                            menuText = "&Start recording macro";
-                        else
-                            menuText = "&Stop recording macro";
-
                         // Copy the text to the OLECMDTEXT structure
                         if (pCmdText != IntPtr.Zero)
                         {
                             var cmdText = (OLECMDTEXT)Marshal.PtrToStructure(pCmdText, typeof(OLECMDTEXT));
                             if (cmdText.cmdtextf == (uint)OLECMDTEXTF.OLECMDTEXTF_NAME)
+                            {
+                                var menuText = Macro.CurrentMacro == null || !Macro.CurrentMacro.IsRecording ?
+                                    "&Start recording macro" :
+                                    "&Stop recording macro";
+
                                 SetText(pCmdText, menuText);
+                            }
                         }
                         
                         // Enable the menu
@@ -205,6 +205,19 @@ namespace VSTextMacros
                         var index = prgCmds[i].cmdID - PkgCmdIDList.idRunSavedMacro1;
                         var macros = SavedMacros.GetMacroList();
                         var enabled = index < macros.Count;
+
+                        if (pCmdText != IntPtr.Zero)
+                        {
+                            var cmdText = (OLECMDTEXT)Marshal.PtrToStructure(pCmdText, typeof(OLECMDTEXT));
+                            if (cmdText.cmdtextf == (uint)OLECMDTEXTF.OLECMDTEXTF_NAME)
+                            {
+                                var menuText = enabled ?
+                                    $"Run Saved Macro &{index + 1}: {macros[(int)index].Name}" :
+                                    $"Run Saved Macro &{index + 1}";
+
+                                SetText(pCmdText, menuText);
+                            }
+                        }
 
                         if (enabled)
                             prgCmds[i].cmdf = (uint)(OLECMDF.OLECMDF_SUPPORTED | OLECMDF.OLECMDF_ENABLED);

@@ -8,7 +8,7 @@ namespace VSTextMacros.Dialogs
 {
     public partial class SavedMacrosDialog : Form
     {
-        private BindingList<SavedMacro> macros;
+        private readonly BindingList<SavedMacro> macros;
 
         public SavedMacrosDialog(IList<SavedMacro> list)
         {

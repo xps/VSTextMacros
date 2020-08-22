@@ -90,6 +90,7 @@
 
             <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro1" priority="0xF201" type="Button">
                 <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <CommandFlag>TextChanges</CommandFlag>
                 <Strings>
                     <CommandName>RunSavedMacro1</CommandName>
                     <LocCanonicalName>RunSavedMacro1</LocCanonicalName>
@@ -99,6 +100,7 @@
 
             <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro2" priority="0xF202" type="Button">
                 <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <CommandFlag>TextChanges</CommandFlag>
                 <Strings>
                     <CommandName>RunSavedMacro2</CommandName>
                     <LocCanonicalName>RunSavedMacro2</LocCanonicalName>
@@ -108,6 +110,7 @@
 
             <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro3" priority="0xF203" type="Button">
                 <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <CommandFlag>TextChanges</CommandFlag>
                 <Strings>
                     <CommandName>RunSavedMacro3</CommandName>
                     <LocCanonicalName>RunSavedMacro3</LocCanonicalName>
@@ -117,6 +120,7 @@
 
             <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro4" priority="0xF204" type="Button">
                 <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <CommandFlag>TextChanges</CommandFlag>
                 <Strings>
                     <CommandName>RunSavedMacro4</CommandName>
                     <LocCanonicalName>RunSavedMacro4</LocCanonicalName>
@@ -126,6 +130,7 @@
 
             <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro5" priority="0xF205" type="Button">
                 <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <CommandFlag>TextChanges</CommandFlag>
                 <Strings>
                     <CommandName>RunSavedMacro5</CommandName>
                     <LocCanonicalName>RunSavedMacro5</LocCanonicalName>
