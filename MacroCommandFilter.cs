@@ -229,14 +229,30 @@ namespace VSTextMacros
                     foreach (var command in macro.Commands)
                     {
                         var pguidCmdGroup = command.CommandGroup;
-
                         if (command.Character != null)
                         {
                             Marshal.GetNativeVariantForObject((ushort)command.Character, pvaIn);
                             Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, pvaIn, IntPtr.Zero);
+                            continue;
                         }
-                        else
-                            Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, IntPtr.Zero, IntPtr.Zero);
+                        // Add some support to "Find (Next/Previous)[Selected]" via DTE.
+                        switch (command.CommandID) {
+                            case (uint)VSConstants.VSStd97CmdID.FindNext:
+                                VSTextMacrosPackage.Current.DTE.ExecuteCommand("Edit.FindNext");
+                                break;
+                            case (uint)VSConstants.VSStd97CmdID.FindSelectedNext:
+                                VSTextMacrosPackage.Current.DTE.ExecuteCommand("Edit.FindNextSelected");
+                                break;
+                            case (uint)VSConstants.VSStd97CmdID.FindPrev:
+                                VSTextMacrosPackage.Current.DTE.ExecuteCommand("Edit.FindPrevious");
+                                break;
+                            case (uint)VSConstants.VSStd97CmdID.FindSelectedPrev:
+                                VSTextMacrosPackage.Current.DTE.ExecuteCommand("Edit.FindPreviousSelected");
+                                break;
+                            default:
+                                Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, IntPtr.Zero, IntPtr.Zero);
+                                break;
+                        }
                     }
                 }
             }
