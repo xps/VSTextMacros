@@ -59,6 +59,7 @@ Currently, here are the commands that can be recorded:
  - Cursor movements
  - Characters that you type
  - Tabs, new lines, deletions
+ - Find operations (Find Next...)
  - Some text editing commands from the Edit menu (to lowercase, to uppercase...)
  
 **Known limitations:**
@@ -69,6 +70,11 @@ Currently, here are the commands that can be recorded:
  
 Change Log
 ===============================
+
+**1.15 - Aug 22, 2020**
+ - Support for Find operations (thanks to [viniciusvillas][13])
+ - Added macro names in playback menu
+ - Automatically stop recording on playback
 
 **1.14 - Nov 10, 2019**
  - Fixed reordering macros

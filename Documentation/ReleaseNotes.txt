@@ -1,4 +1,9 @@
-﻿1.14 - Nov 10, 2019
+﻿1.15 - Nov 10, 2019
+    Support for Find operations
+    Added macro names in playback menu
+    Automatically stop recording on playback
+
+1.14 - Nov 10, 2019
     Fixed reodering macros
 
 1.13 - Sep 30, 2019
