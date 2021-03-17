@@ -130,6 +130,9 @@ namespace VSTextMacros
                 // Recordable command?
                 if (RecordableCommands.Commands.ContainsKey(pguidCmdGroup) && RecordableCommands.Commands[pguidCmdGroup].Contains(nCmdID))
                 {
+#if DEBUG
+                    Trace.WriteLine(string.Format("Recorded - Guid: {0}, ID: {1}, Opts: {2}, In: {3}", pguidCmdGroup, nCmdID, nCmdexecopt, pvaIn != IntPtr.Zero ? "yes" : "no"));
+#endif
                     // For the TYPECHAR command, read the actual character code
                     if (pguidCmdGroup == VSConstants.VSStd2K && nCmdID == (uint)VSConstants.VSStd2KCmdID.TYPECHAR)
                         Macro.CurrentMacro.AddCommand(pguidCmdGroup, nCmdID, nCmdexecopt, GetTypedChar(pvaIn));
@@ -268,24 +271,13 @@ namespace VSTextMacros
                             Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, pvaIn, IntPtr.Zero);
                             continue;
                         }
-                        // Add some support to "Find (Next/Previous)[Selected]" via DTE.
-                        switch (command.CommandID) {
-                            case (uint)VSConstants.VSStd97CmdID.FindNext:
-                                VSTextMacrosPackage.Current.DTE.ExecuteCommand("Edit.FindNext");
-                                break;
-                            case (uint)VSConstants.VSStd97CmdID.FindSelectedNext:
-                                VSTextMacrosPackage.Current.DTE.ExecuteCommand("Edit.FindNextSelected");
-                                break;
-                            case (uint)VSConstants.VSStd97CmdID.FindPrev:
-                                VSTextMacrosPackage.Current.DTE.ExecuteCommand("Edit.FindPrevious");
-                                break;
-                            case (uint)VSConstants.VSStd97CmdID.FindSelectedPrev:
-                                VSTextMacrosPackage.Current.DTE.ExecuteCommand("Edit.FindPreviousSelected");
-                                break;
-                            default:
-                                Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, IntPtr.Zero, IntPtr.Zero);
-                                break;
-                        }
+
+                        RecordableCommands.Command cmd;
+                        RecordableCommands.CommandSet cmdSet = RecordableCommands.Commands[pguidCmdGroup];
+                        if (cmdSet != null && cmdSet.TryGetValue(command.CommandID, out cmd) && !String.IsNullOrEmpty(cmd.Cmd))
+                            VSTextMacrosPackage.Current.DTE.ExecuteCommand(cmd.Cmd);
+                        else
+                            Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, IntPtr.Zero, IntPtr.Zero);
                     }
                 }
             }
