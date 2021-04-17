@@ -28,3 +28,7 @@ if (-not $newVersion) {
 replace "source.extension.vsixmanifest" "`"$currentVersion`"" "`"$newVersion`""
 replace "VSTextMacrosPackage.cs" "`"$currentVersion`"" "`"$newVersion`""
 replace "Properties/AssemblyInfo.cs" "`"$currentVersion.*`"" "`"$newVersion.*`""
+
+"Now add what's new in:"
+" - ReadMe.md"
+" - Documentation/ReleaseNotes.txt"

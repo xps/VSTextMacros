@@ -70,6 +70,11 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.16 - Apr 17, 2021**
+ - Support for loading extra recordable commands from an external file (thanks to [gregtbrown][14])
+ - Added "Duplicate" to recordable commands
+ - Added a menu item to open the macros directory in Explorer
+	
 **1.15 - Aug 22, 2020**
  - Support for Find operations (thanks to [viniciusvillas][13])
  - Added macro names in playback menu
@@ -175,3 +180,4 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  [11]: https://github.com/ygoe
  [12]: https://github.com/xps/VSTextMacros/issues/14
  [13]: https://github.com/viniciusvillas
+ [14]: https://github.com/gregtbrown

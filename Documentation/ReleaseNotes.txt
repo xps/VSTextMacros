@@ -1,4 +1,9 @@
-﻿1.15 - Nov 10, 2019
+﻿1.16 - Apr 17, 2021
+	Support for loading extra recordable commands from an external file
+	Added "Duplicate" to recordable commands
+	Added a menu item to open the macros directory in Explorer
+
+1.15 - Aug 22, 2020
     Support for Find operations
     Added macro names in playback menu
     Automatically stop recording on playback
