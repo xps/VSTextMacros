@@ -11,6 +11,7 @@ namespace VSTextMacros
         public const uint idPlaybackMacroMultipleTimes = 0x2003;
         public const uint idSaveMacro = 0x2004;
         public const uint idOpenSavedMacros = 0x2005;
+        public const uint isOpenMacrosDirectory = 0x2006;
 
         public const uint idRunSavedMacro1 = 0x2101;
         public const uint idRunSavedMacro2 = 0x2102;

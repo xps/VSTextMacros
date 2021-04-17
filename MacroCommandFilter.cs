@@ -105,6 +105,14 @@ namespace VSTextMacros
                     dialog.ShowDialog();
                     return VSConstants.S_OK;
                 }
+
+                // Open macros directory
+                if (nCmdID == PkgCmdIDList.isOpenMacrosDirectory)
+                {
+                    var directory = VSTextMacrosPackage.Current.MacroDirectory;
+                    Process.Start("explorer.exe", "\"" + directory + "\"");
+                    return VSConstants.S_OK;
+                }
             }
 
             if (pguidCmdGroup == GuidList.guidMacrosRunSavedCmdSet)

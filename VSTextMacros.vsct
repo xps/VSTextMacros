@@ -88,6 +88,15 @@
                 </Strings>
             </Button>
 
+            <Button guid="guidMacrosCmdSet" id="idOpenMacrosDirectory" priority="0xF206" type="Button">
+                <Parent guid="guidMacrosCmdSet" id="idMacrosGroup" />
+                <Strings>
+                    <CommandName>OpenMacrosDirectory</CommandName>
+                    <LocCanonicalName>OpenMacrosDirectory</LocCanonicalName>
+                    <ButtonText>Open Macros &amp;Directory</ButtonText>
+                </Strings>
+            </Button>
+
             <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro1" priority="0xF201" type="Button">
                 <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
                 <CommandFlag>TextChanges</CommandFlag>
@@ -167,6 +176,7 @@
             <IDSymbol name="idPlaybackMacroMultipleTimes" value="0x2003" />
             <IDSymbol name="idSaveMacro" value="0x2004" />
             <IDSymbol name="idOpenSavedMacros" value="0x2005" />
+            <IDSymbol name="idOpenMacrosDirectory" value="0x2006" />
         </GuidSymbol>
 
         <GuidSymbol name="guidMacrosRunSavedCmdSet" value="{b45e7f34-883c-4fb9-a3b1-dd902b9246bb}">
