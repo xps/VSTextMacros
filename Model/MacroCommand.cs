@@ -10,11 +10,4 @@ namespace VSTextMacros.Model
         public uint CommandOptions { get; set; }
         public char? Character { get; set; }
     }
-
-    public class MacroCustomCommand
-    {
-        public Guid Group;
-        public uint ID;
-        public String Cmd;
-    };
 }

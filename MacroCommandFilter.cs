@@ -272,9 +272,8 @@ namespace VSTextMacros
                             continue;
                         }
 
-                        RecordableCommands.Command cmd;
-                        RecordableCommands.CommandSet cmdSet = RecordableCommands.Commands[pguidCmdGroup];
-                        if (cmdSet != null && cmdSet.TryGetValue(command.CommandID, out cmd) && !String.IsNullOrEmpty(cmd.Cmd))
+                        var cmdSet = RecordableCommands.Commands[pguidCmdGroup];
+                        if (cmdSet != null && cmdSet.TryGetValue(command.CommandID, out RecordableCommands.Command cmd) && !String.IsNullOrEmpty(cmd.Cmd))
                             VSTextMacrosPackage.Current.DTE.ExecuteCommand(cmd.Cmd);
                         else
                             Next.Exec(ref pguidCmdGroup, command.CommandID, command.CommandOptions, IntPtr.Zero, IntPtr.Zero);

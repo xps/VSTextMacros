@@ -254,6 +254,7 @@
     <Compile Include="Model\Macro.cs" />
     <Compile Include="MacroAdornmentManager.cs" />
     <Compile Include="Model\MacroCommand.cs" />
+    <Compile Include="Model\MacroCustomCommand.cs" />
     <Compile Include="Model\RecordableCommands.cs" />
     <Compile Include="Model\SavedMacro.cs" />
     <Compile Include="Resources.Designer.cs">

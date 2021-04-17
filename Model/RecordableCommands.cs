@@ -12,9 +12,9 @@ namespace VSTextMacros.Model
         public class Command
         {
             public uint Id { get; set; }
-            public String Cmd { get; set; }
+            public string Cmd { get; set; }
 
-            public Command(uint id, String cmd = null)
+            public Command(uint id, string cmd = null)
             {
                 Id = id;
                 Cmd = cmd;
@@ -40,25 +40,24 @@ namespace VSTextMacros.Model
             {
             }
 
-            public bool Add(uint id, String cmd = null)
+            public bool Add(uint id, string cmd = null)
             {
-                return this.Add(new Command(id, cmd));
+                return Add(new Command(id, cmd));
             }
 
             public bool Contains(uint id)
             {
-                return base.Contains(new Command(id));
+                return Contains(new Command(id));
             }
             public bool TryGetValue(uint id, out Command cmd)
             {
-                return base.TryGetValue(new Command(id), out cmd);
+                return TryGetValue(new Command(id), out cmd);
             }
         };
 
-        public static bool Add(Guid group, uint id, String cmd = null)
+        public static bool Add(Guid group, uint id, string cmd = null)
         {
-            CommandSet cmdSet;
-            if (!Commands.TryGetValue(group, out cmdSet))
+            if (!Commands.TryGetValue(group, out CommandSet cmdSet))
             {
                 cmdSet = new CommandSet();
                 Commands.Add(group, cmdSet);
@@ -66,15 +65,15 @@ namespace VSTextMacros.Model
             return cmdSet.Add(id, cmd);
         }
 
-        public static bool AddFromFile(String fileName)
+        public static bool AddFromFile(string fileName)
         {
             if (!File.Exists(fileName))
                 return true;
 
             try
             {
-                List<MacroCustomCommand> cmds = Utilities.XmlHelpers.Deserialize<List<MacroCustomCommand>>(File.ReadAllText(fileName));
-                foreach (MacroCustomCommand cmd in cmds)
+                var cmds = Utilities.XmlHelpers.Deserialize<List<MacroCustomCommand>>(File.ReadAllText(fileName));
+                foreach (var cmd in cmds)
                     Add(cmd.Group, cmd.ID, cmd.Cmd);
             }
             catch (Exception e)
