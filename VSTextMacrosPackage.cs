@@ -38,6 +38,8 @@ namespace VSTextMacros
 			if (File.Exists(Path.Combine(MacroDirectory, "Current.xml")))
 				Macro.CurrentMacro = Macro.LoadFromFile(Path.Combine(MacroDirectory, "Current.xml"));
 
+			RecordableCommands.AddFromFile(Path.Combine(MacroDirectory, "Custom.xml"));
+
 			DTE = (DTE2)await GetServiceAsync(typeof(DTE));
 
 			await base.InitializeAsync(cancellationToken, progress);

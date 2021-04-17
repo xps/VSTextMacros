@@ -1,127 +1,206 @@
 ﻿using Microsoft.VisualStudio;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
 
 namespace VSTextMacros.Model
 {
     // List of all recordable commands
     public class RecordableCommands
     {
+        public class Command
+        {
+            public uint Id { get; set; }
+            public String Cmd { get; set; }
+
+            public Command(uint id, String cmd = null)
+            {
+                Id = id;
+                Cmd = cmd;
+            }
+        };
+
+        public class CommandSet : HashSet<Command>
+        {
+            private class CommandComparer : IEqualityComparer<Command>
+            {
+                public bool Equals(Command x, Command y)
+                {
+                    return x.Id == y.Id;
+                }
+
+                public int GetHashCode(Command obj)
+                {
+                    return (int)obj.Id;
+                }
+            };
+
+            public CommandSet() : base(new CommandComparer())
+            {
+            }
+
+            public bool Add(uint id, String cmd = null)
+            {
+                return this.Add(new Command(id, cmd));
+            }
+
+            public bool Contains(uint id)
+            {
+                return base.Contains(new Command(id));
+            }
+            public bool TryGetValue(uint id, out Command cmd)
+            {
+                return base.TryGetValue(new Command(id), out cmd);
+            }
+        };
+
+        public static bool Add(Guid group, uint id, String cmd = null)
+        {
+            CommandSet cmdSet;
+            if (!Commands.TryGetValue(group, out cmdSet))
+            {
+                cmdSet = new CommandSet();
+                Commands.Add(group, cmdSet);
+            }
+            return cmdSet.Add(id, cmd);
+        }
+
+        public static bool AddFromFile(String fileName)
+        {
+            if (!File.Exists(fileName))
+                return true;
+
+            try
+            {
+                List<MacroCustomCommand> cmds = Utilities.XmlHelpers.Deserialize<List<MacroCustomCommand>>(File.ReadAllText(fileName));
+                foreach (MacroCustomCommand cmd in cmds)
+                    Add(cmd.Group, cmd.ID, cmd.Cmd);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error loading custom macros:\n" + e.Message, "Text Macros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
         // Key is the command group guid, value is the list of command IDs
-        public static readonly Dictionary<Guid, IEnumerable<uint>> Commands = new Dictionary<Guid, IEnumerable<uint>>
+        public static Dictionary<Guid, CommandSet> Commands = new Dictionary<Guid, CommandSet>
         {
             {
                 // VSConstants.VSStd2K,
                 Guid.Parse("1496A755-94DE-11D0-8C3F-00C04FC2AAE2"),
-                new HashSet<uint>
+                new CommandSet()
                 {
-                    (uint)VSConstants.VSStd2KCmdID.TYPECHAR,
-                    (uint)VSConstants.VSStd2KCmdID.BACKSPACE,
-                    (uint)VSConstants.VSStd2KCmdID.RETURN,
-                    (uint)VSConstants.VSStd2KCmdID.ECMD_TAB,
-                    (uint)VSConstants.VSStd2KCmdID.TAB,
-                    (uint)VSConstants.VSStd2KCmdID.BACKTAB,
-                    (uint)VSConstants.VSStd2KCmdID.DELETE,
-                    (uint)VSConstants.VSStd2KCmdID.LEFT,
-                    (uint)VSConstants.VSStd2KCmdID.LEFT_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.RIGHT,
-                    (uint)VSConstants.VSStd2KCmdID.RIGHT_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.UP,
-                    (uint)VSConstants.VSStd2KCmdID.UP_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.DOWN,
-                    (uint)VSConstants.VSStd2KCmdID.DOWN_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.HOME,
-                    (uint)VSConstants.VSStd2KCmdID.HOME_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.END,
-                    (uint)VSConstants.VSStd2KCmdID.END_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.BOL,
-                    (uint)VSConstants.VSStd2KCmdID.BOL_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.FIRSTCHAR,
-                    (uint)VSConstants.VSStd2KCmdID.FIRSTCHAR_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.EOL,
-                    (uint)VSConstants.VSStd2KCmdID.EOL_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.LASTCHAR,
-                    (uint)VSConstants.VSStd2KCmdID.LASTCHAR_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.PAGEUP,
-                    (uint)VSConstants.VSStd2KCmdID.PAGEUP_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.PAGEDN,
-                    (uint)VSConstants.VSStd2KCmdID.PAGEDN_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.TOPLINE,
-                    (uint)VSConstants.VSStd2KCmdID.TOPLINE_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.BOTTOMLINE,
-                    (uint)VSConstants.VSStd2KCmdID.BOTTOMLINE_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.SELTABIFY,
-                    (uint)VSConstants.VSStd2KCmdID.SELUNTABIFY,
-                    (uint)VSConstants.VSStd2KCmdID.SELLOWCASE,
-                    (uint)VSConstants.VSStd2KCmdID.SELUPCASE,
-                    (uint)VSConstants.VSStd2KCmdID.SELECTCURRENTWORD,
-                    (uint)VSConstants.VSStd2KCmdID.DELETEWORDRIGHT,
-                    (uint)VSConstants.VSStd2KCmdID.DELETEWORDLEFT,
-                    (uint)VSConstants.VSStd2KCmdID.WORDPREV,
-                    (uint)VSConstants.VSStd2KCmdID.WORDPREV_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.WORDNEXT,
-                    (uint)VSConstants.VSStd2KCmdID.WORDNEXT_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.FORMATDOCUMENT,
-                    (uint)VSConstants.VSStd2KCmdID.FORMATSELECTION,
-                    (uint)VSConstants.VSStd2KCmdID.COMMENT_BLOCK,
-                    (uint)VSConstants.VSStd2KCmdID.COMMENTBLOCK,
-                    (uint)VSConstants.VSStd2KCmdID.UNCOMMENT_BLOCK,
-                    (uint)VSConstants.VSStd2KCmdID.UNCOMMENTBLOCK,
-                    (uint)VSConstants.VSStd2KCmdID.DELETEWHITESPACE,
-                    (uint)VSConstants.VSStd2KCmdID.DELETELINE,
-                    (uint)VSConstants.VSStd2KCmdID.DELETEBLANKLINES,
-                    (uint)VSConstants.VSStd2KCmdID.INDENT,
-                    (uint)VSConstants.VSStd2KCmdID.UNINDENT,
-                    (uint)VSConstants.VSStd2KCmdID.EditorLineFirstColumn,
-                    (uint)VSConstants.VSStd2KCmdID.EditorLineFirstColumnExtend,
-                    (uint)VSConstants.VSStd2KCmdID.GOTOBRACE,
-                    (uint)VSConstants.VSStd2KCmdID.GOTOBRACE_EXT,
-                    (uint)VSConstants.VSStd2KCmdID.OUTLN_HIDE_SELECTION,
-                    (uint)VSConstants.VSStd2KCmdID.OUTLN_TOGGLE_CURRENT,
-                    (uint)VSConstants.VSStd2KCmdID.OUTLN_TOGGLE_ALL,
-                    (uint)VSConstants.VSStd2KCmdID.OUTLN_STOP_HIDING_ALL,
-                    (uint)VSConstants.VSStd2KCmdID.OUTLN_STOP_HIDING_CURRENT,
-                    (uint)VSConstants.VSStd2KCmdID.OUTLN_COLLAPSE_TO_DEF
+                    new Command((uint)VSConstants.VSStd2KCmdID.TYPECHAR),
+                    new Command((uint)VSConstants.VSStd2KCmdID.BACKSPACE),
+                    new Command((uint)VSConstants.VSStd2KCmdID.RETURN),
+                    new Command((uint)VSConstants.VSStd2KCmdID.ECMD_TAB),
+                    new Command((uint)VSConstants.VSStd2KCmdID.TAB),
+                    new Command((uint)VSConstants.VSStd2KCmdID.BACKTAB),
+                    new Command((uint)VSConstants.VSStd2KCmdID.DELETE),
+                    new Command((uint)VSConstants.VSStd2KCmdID.LEFT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.LEFT_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.RIGHT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.RIGHT_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.UP),
+                    new Command((uint)VSConstants.VSStd2KCmdID.UP_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.DOWN),
+                    new Command((uint)VSConstants.VSStd2KCmdID.DOWN_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.HOME),
+                    new Command((uint)VSConstants.VSStd2KCmdID.HOME_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.END),
+                    new Command((uint)VSConstants.VSStd2KCmdID.END_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.BOL),
+                    new Command((uint)VSConstants.VSStd2KCmdID.BOL_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.FIRSTCHAR),
+                    new Command((uint)VSConstants.VSStd2KCmdID.FIRSTCHAR_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.EOL),
+                    new Command((uint)VSConstants.VSStd2KCmdID.EOL_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.LASTCHAR),
+                    new Command((uint)VSConstants.VSStd2KCmdID.LASTCHAR_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.PAGEUP),
+                    new Command((uint)VSConstants.VSStd2KCmdID.PAGEUP_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.PAGEDN),
+                    new Command((uint)VSConstants.VSStd2KCmdID.PAGEDN_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.TOPLINE),
+                    new Command((uint)VSConstants.VSStd2KCmdID.TOPLINE_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.BOTTOMLINE),
+                    new Command((uint)VSConstants.VSStd2KCmdID.BOTTOMLINE_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.SELTABIFY),
+                    new Command((uint)VSConstants.VSStd2KCmdID.SELUNTABIFY),
+                    new Command((uint)VSConstants.VSStd2KCmdID.SELLOWCASE),
+                    new Command((uint)VSConstants.VSStd2KCmdID.SELUPCASE),
+                    new Command((uint)VSConstants.VSStd2KCmdID.SELECTCURRENTWORD),
+                    new Command((uint)VSConstants.VSStd2KCmdID.DELETEWORDRIGHT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.DELETEWORDLEFT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.WORDPREV),
+                    new Command((uint)VSConstants.VSStd2KCmdID.WORDPREV_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.WORDNEXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.WORDNEXT_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.FORMATDOCUMENT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.FORMATSELECTION),
+                    new Command((uint)VSConstants.VSStd2KCmdID.COMMENT_BLOCK),
+                    new Command((uint)VSConstants.VSStd2KCmdID.COMMENTBLOCK),
+                    new Command((uint)VSConstants.VSStd2KCmdID.UNCOMMENT_BLOCK),
+                    new Command((uint)VSConstants.VSStd2KCmdID.UNCOMMENTBLOCK),
+                    new Command((uint)VSConstants.VSStd2KCmdID.DELETEWHITESPACE),
+                    new Command((uint)VSConstants.VSStd2KCmdID.DELETELINE),
+                    new Command((uint)VSConstants.VSStd2KCmdID.DELETEBLANKLINES),
+                    new Command((uint)VSConstants.VSStd2KCmdID.INDENT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.UNINDENT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.EditorLineFirstColumn),
+                    new Command((uint)VSConstants.VSStd2KCmdID.EditorLineFirstColumnExtend),
+                    new Command((uint)VSConstants.VSStd2KCmdID.GOTOBRACE),
+                    new Command((uint)VSConstants.VSStd2KCmdID.GOTOBRACE_EXT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.OUTLN_HIDE_SELECTION),
+                    new Command((uint)VSConstants.VSStd2KCmdID.OUTLN_TOGGLE_CURRENT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.OUTLN_TOGGLE_ALL),
+                    new Command((uint)VSConstants.VSStd2KCmdID.OUTLN_STOP_HIDING_ALL),
+                    new Command((uint)VSConstants.VSStd2KCmdID.OUTLN_STOP_HIDING_CURRENT),
+                    new Command((uint)VSConstants.VSStd2KCmdID.OUTLN_COLLAPSE_TO_DEF)
                 }
             },
             {
                 // VSConstants.VSStd97
                 Guid.Parse("5EFC7975-14BC-11CF-9B2B-00AA00573819"),
-                new HashSet<uint>
+                new CommandSet()
                 {
-                    (uint)VSConstants.VSStd97CmdID.Copy,
-                    (uint)VSConstants.VSStd97CmdID.Cut,
-                    (uint)VSConstants.VSStd97CmdID.Delete,
-                    (uint)VSConstants.VSStd97CmdID.Paste,
-                    (uint)VSConstants.VSStd97CmdID.Redo,
-                    (uint)VSConstants.VSStd97CmdID.MultiLevelRedo,
-                    (uint)VSConstants.VSStd97CmdID.SelectAll,
-                    (uint)VSConstants.VSStd97CmdID.Undo,
-                    (uint)VSConstants.VSStd97CmdID.SaveProjectItem,
+                    new Command((uint)VSConstants.VSStd97CmdID.Copy),
+                    new Command((uint)VSConstants.VSStd97CmdID.Cut),
+                    new Command((uint)VSConstants.VSStd97CmdID.Delete),
+                    new Command((uint)VSConstants.VSStd97CmdID.Paste),
+                    new Command((uint)VSConstants.VSStd97CmdID.Redo),
+                    new Command((uint)VSConstants.VSStd97CmdID.MultiLevelRedo),
+                    new Command((uint)VSConstants.VSStd97CmdID.SelectAll),
+                    new Command((uint)VSConstants.VSStd97CmdID.Undo),
+                    new Command((uint)VSConstants.VSStd97CmdID.SaveProjectItem),
                     // Support to find features.
-                    (uint)VSConstants.VSStd97CmdID.FindNext,
-                    (uint)VSConstants.VSStd97CmdID.FindPrev,
-                    (uint)VSConstants.VSStd97CmdID.FindSelectedNext,
-                    (uint)VSConstants.VSStd97CmdID.FindSelectedPrev
+                    new Command((uint)VSConstants.VSStd97CmdID.FindNext, "Edit.FindNext"),
+                    new Command((uint)VSConstants.VSStd97CmdID.FindPrev, "Edit.FindPrevious"),
+                    new Command((uint)VSConstants.VSStd97CmdID.FindSelectedNext, "Edit.FindNextSelected"),
+                    new Command((uint)VSConstants.VSStd97CmdID.FindSelectedPrev, "Edit.FindPreviousSelected")
                 }
             },
             {
                 // VSConstants.VSStd12
                 Guid.Parse("2A8866DC-7BDE-4DC8-A360-A60679534384"),
-                new HashSet<uint>
+                new CommandSet()
                 {
-                    258, // VSConstants.VSStd12CmdID.MoveSelLinesUp
-                    259, // VSConstants.VSStd12CmdID.MoveSelLinesDown
+                    new Command(258), // VSConstants.VSStd12CmdID.MoveSelLinesUp
+                    new Command(259), // VSConstants.VSStd12CmdID.MoveSelLinesDown
                 }
             },
             {
                 // Organize usings menu
                 Guid.Parse("5D7E7F65-A63F-46EE-84F1-990B2CAB23F9"),
-                new HashSet<uint>
+                new CommandSet()
                 {
-                    6417, // Remove unused usings
-                    6418, // Sort usings
-                    6419  // Remove and sort
+                    new Command(6417), // Remove unused usings
+                    new Command(6418), // Sort usings
+                    new Command(6419)  // Remove and sort
                 }
             }
         };
