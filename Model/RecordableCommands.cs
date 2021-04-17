@@ -188,8 +188,16 @@ namespace VSTextMacros.Model
                 Guid.Parse("2A8866DC-7BDE-4DC8-A360-A60679534384"),
                 new CommandSet()
                 {
-                    new Command(258), // VSConstants.VSStd12CmdID.MoveSelLinesUp
-                    new Command(259), // VSConstants.VSStd12CmdID.MoveSelLinesDown
+                    new Command((int)VSConstants.VSStd12CmdID.MoveSelLinesUp),
+                    new Command((int)VSConstants.VSStd12CmdID.MoveSelLinesDown)
+                }
+            },
+            {
+                // Edit menu
+                Guid.Parse("160961B3-909D-4B28-9353-A1BEF587B4A6"),
+                new CommandSet()
+                {
+                    new Command(1) // Duplicate
                 }
             },
             {
