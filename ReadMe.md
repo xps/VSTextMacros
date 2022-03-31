@@ -1,4 +1,4 @@
-**THE CURRENT VERSION WORKS WITH VISUAL STUDIO 2019**
+**THE CURRENT VERSION WORKS WITH VISUAL STUDIO 2019-2022**
 
 For Visual Studio 2012 to 2017, please download and install this version:
 https://github.com/xps/VSTextMacros/releases/download/1.12/VSTextMacros-1.12.vsix
