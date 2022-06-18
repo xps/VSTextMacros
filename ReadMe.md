@@ -27,7 +27,7 @@ How does it work?
 
 After installing this extension, you will find a menu called `Text Macros` in the `Tools` menu.
 It will only be visible when there is an active text or code editor.
-It has 3 submenus: one that toggles the recording of a macro (Start/stop recording macro), one that replays the last recorded macro (Playback macro), and another that can repeat the macro any given number of times.
+It has 5 submenus: one that toggles the recording of a macro (Start/stop recording macro), one that replays the last recorded macro (Playback macro), one that can repeat the macro any given number of times, one that saves the current macro for future use, and one that opens the directory where macros are saved in the explorer.
 
  ![Screenshot][2]
 
@@ -155,7 +155,7 @@ License
 ===============================
 
 Text Macros for Visual Studio
-Copyright (C) 2012-2020 Xavier Poinas
+Copyright (C) 2012-2022 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
