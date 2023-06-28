@@ -118,7 +118,7 @@ namespace VSTextMacros
             if (pguidCmdGroup == GuidList.guidMacrosRunSavedCmdSet)
             {
                 // Run saved macro #
-                if (nCmdID >= PkgCmdIDList.idRunSavedMacro1 && nCmdID <= PkgCmdIDList.idRunSavedMacro5)
+                if (nCmdID >= PkgCmdIDList.idRunSavedMacro1 && nCmdID <= PkgCmdIDList.idRunSavedMacro9)
                 {
                     var index = nCmdID - PkgCmdIDList.idRunSavedMacro1;
                     var macroList = SavedMacros.GetMacroList();
@@ -211,7 +211,7 @@ namespace VSTextMacros
 
                 for (int i = 0; i < cCmds; i++)
                 {
-                    if (prgCmds[i].cmdID >= PkgCmdIDList.idRunSavedMacro1 && prgCmds[i].cmdID <= PkgCmdIDList.idRunSavedMacro5)
+                    if (prgCmds[i].cmdID >= PkgCmdIDList.idRunSavedMacro1 && prgCmds[i].cmdID <= PkgCmdIDList.idRunSavedMacro9)
                     {
                         var index = prgCmds[i].cmdID - PkgCmdIDList.idRunSavedMacro1;
                         var macros = SavedMacros.GetMacroList();

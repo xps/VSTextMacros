@@ -146,7 +146,47 @@
                     <ButtonText>Run Saved Macro &amp;5</ButtonText>
                 </Strings>
             </Button>
-            
+
+            <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro6" priority="0xF206" type="Button">
+                <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <CommandFlag>TextChanges</CommandFlag>
+                <Strings>
+                    <CommandName>RunSavedMacro6</CommandName>
+                    <LocCanonicalName>RunSavedMacro6</LocCanonicalName>
+                    <ButtonText>Run Saved Macro &amp;6</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro7" priority="0xF207" type="Button">
+                <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <CommandFlag>TextChanges</CommandFlag>
+                <Strings>
+                    <CommandName>RunSavedMacro7</CommandName>
+                    <LocCanonicalName>RunSavedMacro7</LocCanonicalName>
+                    <ButtonText>Run Saved Macro &amp;7</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro8" priority="0xF208" type="Button">
+                <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <CommandFlag>TextChanges</CommandFlag>
+                <Strings>
+                    <CommandName>RunSavedMacro8</CommandName>
+                    <LocCanonicalName>RunSavedMacro8</LocCanonicalName>
+                    <ButtonText>Run Saved Macro &amp;8</ButtonText>
+                </Strings>
+            </Button>
+
+            <Button guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro9" priority="0xF209" type="Button">
+                <Parent guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacrosGroup" />
+                <CommandFlag>TextChanges</CommandFlag>
+                <Strings>
+                    <CommandName>RunSavedMacro9</CommandName>
+                    <LocCanonicalName>RunSavedMacro9</LocCanonicalName>
+                    <ButtonText>Run Saved Macro &amp;9</ButtonText>
+                </Strings>
+            </Button>
+
         </Buttons>
 
     </Commands>
@@ -155,12 +195,16 @@
         <KeyBinding guid="guidMacrosCmdSet" id="idRecordMacro" mod1="Control Shift" key1="R" editor="guidVSStd97TextEditor" />
         <KeyBinding guid="guidMacrosCmdSet" id="idPlaybackMacro" mod1="Control Shift" key1="P" editor="guidVSStd97TextEditor" />
         <KeyBinding guid="guidMacrosCmdSet" id="idOpenSavedMacros" mod1="Control Shift" key1="M" editor="guidVSStd97" />
-        
+
         <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro1" mod1="Control" key1="M" key2="1" editor="guidVSStd97" />
         <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro2" mod1="Control" key1="M" key2="2" editor="guidVSStd97" />
         <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro3" mod1="Control" key1="M" key2="3" editor="guidVSStd97" />
         <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro4" mod1="Control" key1="M" key2="4" editor="guidVSStd97" />
         <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro5" mod1="Control" key1="M" key2="5" editor="guidVSStd97" />
+        <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro6" mod1="Control" key1="M" key2="6" editor="guidVSStd97" />
+        <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro7" mod1="Control" key1="M" key2="7" editor="guidVSStd97" />
+        <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro8" mod1="Control" key1="M" key2="8" editor="guidVSStd97" />
+        <KeyBinding guid="guidMacrosRunSavedCmdSet" id="idRunSavedMacro9" mod1="Control" key1="M" key2="9" editor="guidVSStd97" />
     </KeyBindings>
 
     <Symbols>
@@ -186,8 +230,12 @@
             <IDSymbol name="idRunSavedMacro3" value="0x2103" />
             <IDSymbol name="idRunSavedMacro4" value="0x2104" />
             <IDSymbol name="idRunSavedMacro5" value="0x2105" />
+            <IDSymbol name="idRunSavedMacro6" value="0x2106" />
+            <IDSymbol name="idRunSavedMacro7" value="0x2107" />
+            <IDSymbol name="idRunSavedMacro8" value="0x2108" />
+            <IDSymbol name="idRunSavedMacro9" value="0x2109" />
         </GuidSymbol>
-        
+
     </Symbols>
 
 </CommandTable>

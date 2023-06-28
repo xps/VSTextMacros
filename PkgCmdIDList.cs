@@ -1,6 +1,5 @@
 ﻿// PkgCmdID.cs
 // MUST match PkgCmdID.h
-using System;
 
 namespace VSTextMacros
 {
@@ -18,5 +17,9 @@ namespace VSTextMacros
         public const uint idRunSavedMacro3 = 0x2103;
         public const uint idRunSavedMacro4 = 0x2104;
         public const uint idRunSavedMacro5 = 0x2105;
+        public const uint idRunSavedMacro6 = 0x2106;
+        public const uint idRunSavedMacro7 = 0x2107;
+        public const uint idRunSavedMacro8 = 0x2108;
+        public const uint idRunSavedMacro9 = 0x2109;
     }
 }
