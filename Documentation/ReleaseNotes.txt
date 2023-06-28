@@ -1,4 +1,8 @@
-﻿1.17 - Mar 31, 2022
+﻿1.18 - Jun 28, 2023
+    Support for arm64
+    Support for up to 9 macros with keyboard bindings
+    
+1.17 - Mar 31, 2022
     Support for Visual Studio 2022
 
 1.16 - Apr 17, 2021

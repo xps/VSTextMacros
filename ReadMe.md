@@ -70,6 +70,10 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.18 - Jun 28, 2023**
+ - Support for arm64
+ - Support for up to 9 macros with keyboard bindings
+ 
 **1.17 - Mar 31, 2022**
  - Support for Visual Studio 2022
 
@@ -155,7 +159,7 @@ License
 ===============================
 
 Text Macros for Visual Studio
-Copyright (C) 2012-2022 Xavier Poinas
+Copyright (C) 2012-2023 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

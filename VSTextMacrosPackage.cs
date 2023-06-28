@@ -11,7 +11,7 @@ using VSTextMacros.Model;
 namespace VSTextMacros
 {
 	[PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-	[InstalledProductRegistration("#110", "#112", "1.17", IconResourceID = 400)]
+	[InstalledProductRegistration("#110", "#112", "1.18", IconResourceID = 400)]
 	[ProvideMenuResource("Menus.ctmenu", 1)]
 	[Guid(GuidList.guidVSTextMacrosPkgString)]
 	[ProvideAutoLoad(VSConstants.UICONTEXT.NoSolution_string, PackageAutoLoadFlags.BackgroundLoad)]
