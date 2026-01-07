@@ -70,6 +70,9 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.19 - Jan 7, 2026**
+ - Added support for Visual Studio 2026
+
 **1.18 - Jun 28, 2023**
  - Support for arm64
  - Support for up to 9 macros with keyboard bindings
