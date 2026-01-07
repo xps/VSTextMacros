@@ -1,4 +1,4 @@
-**THE CURRENT VERSION WORKS WITH VISUAL STUDIO 2019-2022**
+**THE CURRENT VERSION WORKS WITH VISUAL STUDIO 2019-2026**
 
 For Visual Studio 2012 to 2017, please download and install this version:
 https://github.com/xps/VSTextMacros/releases/download/1.12/VSTextMacros-1.12.vsix
@@ -159,7 +159,7 @@ License
 ===============================
 
 Text Macros for Visual Studio
-Copyright (C) 2012-2023 Xavier Poinas
+Copyright (C) 2012-2026 Xavier Poinas
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
