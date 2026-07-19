@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.0
 
       - name: Determine version
         id: version
@@ -46,10 +46,10 @@ jobs:
         run: ./bump-version.ps1 -newVersion ${{ steps.version.outputs.version }}
 
       - name: Add MSBuild to PATH
-        uses: microsoft/setup-msbuild@v2
+        uses: microsoft/setup-msbuild@v3
 
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v2
+        uses: NuGet/setup-nuget@v4.0
 
       - name: Restore NuGet packages
         run: nuget restore $env:Solution
@@ -67,7 +67,7 @@ jobs:
           "path=$($vsix.FullName)" >> $env:GITHUB_OUTPUT
 
       - name: Upload VSIX artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: VSTextMacros-${{ steps.version.outputs.version }}
           path: ${{ steps.vsix.outputs.path }}
@@ -91,7 +91,7 @@ jobs:
 
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3.0.2
         with:
           files: ${{ steps.vsix.outputs.path }}
           name: ${{ steps.version.outputs.version }}
