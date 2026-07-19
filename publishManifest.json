@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json.schemastore.org/vsix-publish",
+  "categories": [ "coding", "productivity" ],
+  "identity": {
+    "internalName": "TextMacrosforVisualStudio201220132015"
+  },
+  "overview": "ReadMe.md",
+  "priceCategory": "free",
+  "publisher": "XavierPoinas",
+  "private": false,
+  "qnaEnabled": true,
+  "repo": "https://github.com/xps/VSTextMacros"
+}
