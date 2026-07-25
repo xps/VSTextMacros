@@ -1,9 +1,3 @@
-**THE CURRENT VERSION WORKS WITH VISUAL STUDIO 2019-2026**
-
-For Visual Studio 2012 to 2017, please download and install this version:  
-https://github.com/xps/VSTextMacros/releases/download/1.12/VSTextMacros-1.12.vsix
-
-
 What is it?
 ===============================
 
@@ -19,7 +13,14 @@ And if you have not used Visual Studio macros before, you may have used them in 
 Download
 ===============================
 
+**Visual Studio 2019 to 2026**
+
 You can download the VSIX installer from the [Visual Studio Marketplace][4].
+
+**Visual Studio 2012 to 2017**
+
+Please download and install this version:  
+https://github.com/xps/VSTextMacros/releases/download/1.12/VSTextMacros-1.12.vsix
 
 
 How does it work?
