@@ -83,11 +83,21 @@ jobs:
           $vsPath = & $vswhere -latest -property installationPath
           $publisher = Join-Path $vsPath 'VSSDK\VisualStudioIntegration\Tools\Bin\VsixPublisher.exe'
           if (-not (Test-Path $publisher)) { throw "VsixPublisher.exe not found at $publisher" }
-          & $publisher publish `
+          # VsixPublisher uploads correctly but then crashes in its telemetry
+          # (System.Memory assembly load) on the hosted runner, returning a nonzero
+          # exit code even on success. Trust the "VsixPub0038 : Uploaded ... to the
+          # marketplace" message as the source of truth instead of the exit code.
+          $output = & $publisher publish `
             -payload "${{ steps.vsix.outputs.path }}" `
             -publishManifest "publishManifest.json" `
-            -personalAccessToken $env:VS_MARKETPLACE_PAT
-          if ($LASTEXITCODE -ne 0) { throw "VsixPublisher failed with exit code $LASTEXITCODE" }
+            -personalAccessToken $env:VS_MARKETPLACE_PAT 2>&1
+          $exit = $LASTEXITCODE
+          $output | ForEach-Object { Write-Host $_ }
+          if (($output -match 'VsixPub0038') -or ($exit -eq 0)) {
+            Write-Host "Publish confirmed."
+            exit 0
+          }
+          throw "VsixPublisher failed with exit code $exit"
 
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
