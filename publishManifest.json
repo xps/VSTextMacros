@@ -1,6 +1,6 @@
 {
   "$schema": "http://json.schemastore.org/vsix-publish",
-  "categories": [ "coding", "productivity" ],
+  "categories": [ "coding", "other", "programming languages" ],
   "identity": {
     "internalName": "TextMacrosforVisualStudio201220132015"
   },
@@ -8,6 +8,6 @@
   "priceCategory": "free",
   "publisher": "XavierPoinas",
   "private": false,
-  "qnaEnabled": true,
+  "qna": true,
   "repo": "https://github.com/xps/VSTextMacros"
 }

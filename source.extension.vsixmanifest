@@ -8,7 +8,7 @@
         <License>License.txt</License>
         <ReleaseNotes>Documentation\ReleaseNotes.txt</ReleaseNotes>
         <PreviewImage>Documentation\screenshot.png</PreviewImage>
-        <Tags>Productivity, Macros, Editor, Visual Studio</Tags>
+        <Tags>Code Editor, Macros, Productivity, Visual Studio</Tags>
     </Metadata>
     <Installation InstalledByMsi="false">
 		<InstallationTarget Version="[16.0,17.0)" Id="Microsoft.VisualStudio.Enterprise">
