@@ -70,6 +70,9 @@ Currently, here are the commands that can be recorded:
 Change Log
 ===============================
 
+**1.20 - Jul 25, 2026**
+ - Removed unused dependencies (lighter package)
+
 **1.19 - Jan 7, 2026**
  - Added support for Visual Studio 2026
 
