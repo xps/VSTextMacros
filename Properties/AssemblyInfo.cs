@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Xavier Poinas")]
 [assembly: AssemblyProduct("Text Macros for Visual Studio")]
-[assembly: AssemblyCopyright("Copyright (C) 2012-2018 Xavier Poinas")]
+[assembly: AssemblyCopyright("Copyright (C) 2012-2026 Xavier Poinas")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]   
 [assembly: ComVisible(false)]     

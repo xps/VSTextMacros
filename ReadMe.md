@@ -1,13 +1,13 @@
 **THE CURRENT VERSION WORKS WITH VISUAL STUDIO 2019-2026**
 
-For Visual Studio 2012 to 2017, please download and install this version:
+For Visual Studio 2012 to 2017, please download and install this version:  
 https://github.com/xps/VSTextMacros/releases/download/1.12/VSTextMacros-1.12.vsix
 
 
 What is it?
 ===============================
 
-An extension for Visual Studio 2012-2017 that brings back support for macros in text/code editors. These macros can be used to automate repetitive text editing tasks.
+An extension for Visual Studio that brings back support for macros in text/code editors. These macros can be used to automate repetitive text editing tasks.
 
 You may have used such macros in previous versions of Visual Studio. Indeed, macros used to be supported and [removed][5] in Visual Studio 2010.
 
